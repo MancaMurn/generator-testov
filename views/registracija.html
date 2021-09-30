@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8"> <!-- ali je to potrebno? -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- nastavi prilagajanje zaslonu-->
+        <title>Generator testov</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css"> <!-- css za izgled-->
+        <link rel="stylesheet" href="/static/moj_stil.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>  <!-- slikce na strani-->
+</head>
+<body>
+<form method="POST">
+    <div class="field">
+        <label class="label">Uporabniško ime</label>
+        <div class="control has-icons-left has-icons-right">
+            <input class="input" name="uporabnisko_ime" type="text" placeholder="uporabniško ime">
+            <span class="icon is-small is-left">
+                <i class="fas fa-clipboard-check"></i>
+            </span>
+        </div>
+        % if "uporabnisko_ime" in napake:
+        <p class="help is-danger">{{ napake["uporabnisko_ime"] }}</p>
+        % end
+    </div>
+    <div class="field">
+        <label class="label">Geslo</label>
+        <div class="control has-icons-left">
+            <input class="input" name="geslo" type="password" placeholder="geslo">
+            <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+            </span>
+        </div>
+    </div>
+    <div class="field is-grouped">
+        <div class="control">
+            <button class="button is-link">Registriraj se</button>
+        </div>
+    </div>
+</form>
+</body>
+</html>

@@ -7,12 +7,7 @@ y = None
 
 @bottle.get("/")
 def zacetna_stran():
-    if x:
-        a = x.ime
-    else:
-        a = None
-
-    return bottle.template("prijava.html", napaka = None, uporabnisko_ime = a)
+    return bottle.template("prva_stran.html")
 
 @bottle.post("/")
 def zacento_ime():
@@ -21,6 +16,18 @@ def zacento_ime():
     global x
     x = Uporabnik(uporabnisko_ime, geslo)
     bottle.redirect("/") #GET
+
+@bottle.get("/prijava/")
+def prijava():
+    return bottle.template("prijava.html", napaka=None)
+
+@bottle.get("/registracija/")
+def registracija():
+    return bottle.template("registracija.html", napake=[])
+
+@bottle.route('/static/<filename:path>')
+def send_static(filename):
+    return bottle.static_file(filename, root='static')
 
 if __name__ == "__main__":
     bottle.run(debug=True, reloader=True)
