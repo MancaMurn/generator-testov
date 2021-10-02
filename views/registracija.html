@@ -9,33 +9,37 @@
         <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>  <!-- slikce na strani-->
 </head>
 <body>
-<form method="POST">
-    <div class="field">
-        <label class="label">Uporabniško ime</label>
-        <div class="control has-icons-left has-icons-right">
-            <input class="input" name="uporabnisko_ime" type="text" placeholder="uporabniško ime">
-            <span class="icon is-small is-left">
-                <i class="fas fa-clipboard-check"></i>
-            </span>
+<div class="container gumbki">
+    <h1 class="subtitle is-2">Resgistracija</h1>
+    <form method="POST">
+        <div class="column is-half has-background-light">
+            <label class="label">Uporabniško ime</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="input" name="uporabnisko_ime" type="text" placeholder="uporabniško ime">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-clipboard-check"></i>
+                </span>
+            </div>
+            % if "uporabnisko_ime" in napake:
+            <p class="help is-danger">{{ napake["uporabnisko_ime"] }}</p>
+            % end
+        
+            <label class="label">Geslo</label>
+            <div class="control has-icons-left">
+                <input class="input" name="geslo" type="password" placeholder="geslo">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                </span>
+            </div>
+            <div class="field is-grouped gumbki">
+                <div class="control">
+                    <button class="button is-primary is-light">
+                        <strong>Registriraj se</strong> 
+                    </button>
+                </div>
+            </div>
         </div>
-        % if "uporabnisko_ime" in napake:
-        <p class="help is-danger">{{ napake["uporabnisko_ime"] }}</p>
-        % end
-    </div>
-    <div class="field">
-        <label class="label">Geslo</label>
-        <div class="control has-icons-left">
-            <input class="input" name="geslo" type="password" placeholder="geslo">
-            <span class="icon is-small is-left">
-                <i class="fas fa-lock"></i>
-            </span>
-        </div>
-    </div>
-    <div class="field is-grouped">
-        <div class="control">
-            <button class="button is-link">Registriraj se</button>
-        </div>
-    </div>
-</form>
+    </form> 
+</div>
 </body>
 </html>

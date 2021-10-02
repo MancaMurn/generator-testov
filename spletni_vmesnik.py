@@ -7,7 +7,7 @@ y = None
 
 @bottle.get("/")
 def zacetna_stran():
-    return bottle.template("prva_stran.html")
+    return bottle.template("prva_stran.html", napaka=None)
 
 @bottle.post("/")
 def zacento_ime():
