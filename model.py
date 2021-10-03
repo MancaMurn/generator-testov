@@ -4,11 +4,11 @@ import json
 import hashlib
 
 class Uporabnik:
-    def __init__(self, ime, geslo):
+    def __init__(self, ime, geslo, seznam_testov = None):
         self.ime = ime
         self.geslo = geslo
 
-        self.seznam_testov = []
+        self.seznam_testov = seznam_testov
     
     @staticmethod
     def prijava(uporabnisko_ime, geslo_v_cistopisu):
@@ -47,10 +47,12 @@ class Uporabnik:
         }
 
     def v_datoteko(self):
+        #funkcija odpre datoteko uporabnika in vanjo zapise uporabbnikove atribute v slovarju
         with open(
             Uporabnik.ime_uporabnikove_datoteke(self.uporabnisko_ime), "w"
         ) as datoteka:
             json.dump(self.v_slovar(), datoteka, ensure_ascii=False, indent=4)
+
 
     def preveri_geslo(self, geslo_v_cistopisu):
         sol, _ = self.zasifrirano_geslo.split("$")
@@ -60,12 +62,13 @@ class Uporabnik:
     def ime_uporabnikove_datoteke(uporabnisko_ime):
         return f"{uporabnisko_ime}.json"
 
+
     @staticmethod
     def iz_slovarja(slovar):
         uporabnisko_ime = slovar["uporabnisko_ime"]
         zasifrirano_geslo = slovar["zasifrirano_geslo"]
         seznam_testov = slovar["seznam_testov"]
-        return Uporabnik(uporabnisko_ime, zasifrirano_geslo, mapa_testov)
+        return Uporabnik(uporabnisko_ime, zasifrirano_geslo, seznam_testov)
 
     @staticmethod
     def iz_datoteke(uporabnisko_ime):
@@ -77,8 +80,8 @@ class Uporabnik:
             return None
 
 
-# V besedilo manjkajoč podatek označimo z #. besedilo naj bo v obliki niza.
-# formula naj bo v obliki niza, z enakimi spremenljivkami kot jih vpišemo v besedilo.
+
+
 
 
 class Razlicica:
@@ -91,6 +94,7 @@ class Razlicica:
     
     def izracunaj_resitev(self, formula):
         # funkcija v formulo v obliki niza zaporedoma vstavi podatke in nato izracuna vrednost izraza
+        
         for spremenljivka in self.slovar_podatkov:
             formula = formula.replace(spremenljivka, str(self.slovar_podatkov[spremenljivka]))
 
