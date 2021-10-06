@@ -1,36 +1,20 @@
-<!-- % rebase('base.html') -->
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8"> <!-- ali je to potrebno? -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- nastavi prilagajanje zaslonu-->
-  <title>Generator testov</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css"> <!-- css za izgled-->
-  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>  <!-- slikce na strani-->
-</head>
-
-
-
-<body>
+% rebase('base.html')
 
     <form method="POST">
-
         
-        <div class="container gumbki">
-            <div class="column is-three-fifths is_centerd">
-                
-                <div class="block">
-                    <h1 class="title is-2 has-text-primary">Naloge</h1>
-                </div>
+        <div class="container">
+            <div class="column is-three-fifths is_centerd"> 
+                <h1 class="title is-2 has-text-primary">Naloge</h1>
 
                 <div class="block">
                     V okence napiši navodilo naloge. Namesto podatkov vpiši znak # in zaporedno številko podatka.
                     <div class="has-text-primary">
-                        Zgled:
-                        <p class="is-italic">Avto je v #1 s prevozil #2 km. Kako hitro je peljal, če veš, da se je gibal premo enakomerno?</p>
+                        <p>ZGLED: <i>Avto je v #1 s prevozil #2 km. Kako hitro je peljal, če veš, da se je gibal premo enakomerno?</i></p>
                     </div>
                 </div>
+
+
+
                 % for i in range(st_nalog):
                 <div class="block">
                     <h2 class="subtitle is-3">{{i+1}}. naloga</h2>
@@ -41,11 +25,11 @@
                             <button class="button is-primary">
                                 <strong>Potrdi</strong> 
                             </button>
-                        </div>    
-                    
+                        </div> 
+                           
                         
                         
-                        <div class="modal">
+                        <!-- <div class="modal">
                             <div class="modal-background"></div>
                             <div class="modal-card">
                                 <header class="modal-card-head">
@@ -89,27 +73,13 @@
                                     <button class="button">Cancel</button>
                                 </footer>
                             </div>
-                        </div>
+                            <button>podatki</button>
+                        </div> -->
                         
                 </div>
-                % end
-                    
-                <div class="level-right">
-                    <div class="control">
-                        <button class="button is-primary is-rounded is-outlined">
-                            <strong>+ Nova naloga</strong> 
-                        </button>
-                    </div>  
-                </div>      
-                    
-                    
+                % end           
             </div>
-        </div>
-            
-            
+        </div> 
         </form>
-        
-        
-    </body>
     
     

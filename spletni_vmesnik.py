@@ -1,3 +1,5 @@
+from _typeshed import Self
+from typing import _get_type_hints_obj_allowed_types
 import bottle
 from model import *
 
@@ -25,10 +27,13 @@ def prijava_post():
         except ValueError as e:
             return bottle.template("prva_stran.html", napaka=e)
 
+
 @bottle.get("/pozdrav_uporabnika/")
 def pozdrav_uporabnika():
     uporabnisko_ime = bottle.request.get_cookie(PISKOTEK_UPORABNISKO_IME, secret=SKRIVNOST)
     return bottle.template("pozdrav_uporabnika.html", uporabnisko_ime=uporabnisko_ime)
+
+
 
 @bottle.get("/registracija/")
 def registracija():
@@ -62,7 +67,9 @@ def glava_testa():
     letnik = bottle.request.forms.getunicode("letnik")
     st_ucencev = bottle.request.forms.getunicode("st_ucencev")
     st_nalog = int(bottle.request.forms.getunicode("st_nalog"))
-    Test(predmet, letnik, st_ucencev, st_nalog)
+    
+    # Uporabnik.seznam_testov.append(Test(predmet, letnik, st_ucencev, st_nalog))
+    
     return bottle.template("nov_test_naloga.html", st_nalog=st_nalog)
 
 
