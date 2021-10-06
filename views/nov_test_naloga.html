@@ -31,9 +31,9 @@
                         <p class="is-italic">Avto je v #1 s prevozil #2 km. Kako hitro je peljal, če veš, da se je gibal premo enakomerno?</p>
                     </div>
                 </div>
-                
+                % for i in range(st_nalog):
                 <div class="block">
-                    <h2 class="subtitle is-3">1. naloga</h2>
+                    <h2 class="subtitle is-3">{{i+1}}. naloga</h2>
                         <div class="block">
                             <textarea class="textarea" placeholder="Zapiši navodilo naloge."></textarea>
                         </div>
@@ -91,10 +91,8 @@
                             </div>
                         </div>
                         
-                        
-                        
-                        
                 </div>
+                % end
                     
                 <div class="level-right">
                     <div class="control">

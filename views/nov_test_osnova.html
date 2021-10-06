@@ -1,18 +1,5 @@
-<!-- % rebase('base.html') -->
-<!DOCTYPE html>
-<html>
+% rebase('base.html')
 
-<head>
-  <meta charset="utf-8"> <!-- ali je to potrebno? -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- nastavi prilagajanje zaslonu-->
-  <title>Generator testov</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css"> <!-- css za izgled-->
-  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>  <!-- slikce na strani-->
-</head>
-
-
-
-<body>
             <form method="POST">
                 <div class="container">
                     <div class="column is-half is_centerd">
@@ -29,10 +16,13 @@
                                         <input class="input" name="predmet" type="text" placeholder="vpišite predmet, ki ga želite v naslovnici testa">
                                     </li>
                                     <li>Letnik:
-                                        <input class="input" name="Letnik" type="text" placeholder="vpišite letnik, ki ga želite na naslovnici testa">
+                                        <input class="input" name="letnik" type="text" placeholder="vpišite letnik, ki ga želite na naslovnici testa">
                                     </li>
                                     <li>Število učencev:
                                         <input class="input" name="st_ucencev" type="text" placeholder="vpišite število učencev s številko">
+                                    </li>
+                                    <li>Število nalog:
+                                        <input class="input" name="st_nalog" type="text" placeholder="vpišite število nalog s številko">
                                     </li>
                                 </ul>
                             </div>
@@ -44,7 +34,7 @@
                     </div>
                 </div>   
             </form>
-</body>
+
 
     
 

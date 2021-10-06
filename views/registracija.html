@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="container gumbki">
-    <h1 class="subtitle is-2">Resgistracija</h1>
+    <h1 class="subtitle is-2">Registracija</h1>
     <form method="POST">
         <div class="column is-half has-background-light">
             <label class="label">Uporabniško ime</label>
@@ -20,8 +20,9 @@
                     <i class="fas fa-clipboard-check"></i>
                 </span>
             </div>
-            % if "uporabnisko_ime" in napake:
-            <p class="help is-danger">{{ napake["uporabnisko_ime"] }}</p>
+
+            % if napake:
+            <p class="help is-danger">{{ napake }}</p>
             % end
         
             <label class="label">Geslo</label>

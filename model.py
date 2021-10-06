@@ -5,8 +5,8 @@ import hashlib
 
 class Uporabnik:
     def __init__(self, ime, geslo, seznam_testov = None):
-        self.ime = ime
-        self.geslo = geslo
+        self.uporabnisko_ime = ime
+        self.zasifrirano_geslo = geslo
 
         self.seznam_testov = seznam_testov
     
@@ -154,12 +154,23 @@ class Naloga:
 
 
 class Test:
-    def __init__(self, glava, st_razlicic, st_nalog, seznam_nalog):
-        self.glava = glava
+    def __init__(self, predmet, letnik, st_razlicic, st_nalog):
+        self.predmet = predmet
+        self.letnik = letnik
+    
+        self.glava = self.ustvari_glavo_testa()
         self.st_razlicic = st_razlicic
-        self.st_nalog = st_nalog        #kako preberem st_nalog??
+        self.st_nalog = st_nalog        
         self.naloge = self.ustvari_seznam_nalog()
     
+
+    def ustvari_glavo_testa(self):
+        return f'''
+        {self.predmet}
+        {self.letnik}
+        '''
+
+
     def ustvari_seznam_nalog(self):
         seznam = []
         for x in range(self.st_nalog):
