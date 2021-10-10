@@ -1,5 +1,99 @@
 {
     "uporabnisko_ime": "Jakob",
     "zasifrirano_geslo": "1359599007$c48deb691be397e11e2ca9c16cac97519a20accc59a29c9611bf3d874f891d610f707df01d45b793bb7b04e27a7d461a4a702d4fe425f1a3933ec4866d56098b",
-    "seznam_testov": []
+    "seznam_testov": [
+        {
+            "predmet": "a",
+            "letnik": "a",
+            "ucitelj": "Jakob",
+            "st_razlicic": 12,
+            "st_nalog": 12,
+            "slovar_nalog": {
+                "0": {
+                    "st_razlicic": 12,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": []
+                },
+                "1": {
+                    "st_razlicic": 12,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": []
+                },
+                "2": {
+                    "st_razlicic": 12,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": []
+                },
+                "3": {
+                    "st_razlicic": 12,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": []
+                },
+                "4": {
+                    "st_razlicic": 12,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": []
+                },
+                "5": {
+                    "st_razlicic": 12,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": []
+                },
+                "6": {
+                    "st_razlicic": 12,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": []
+                },
+                "7": {
+                    "st_razlicic": 12,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": []
+                },
+                "8": {
+                    "st_razlicic": 12,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": []
+                },
+                "9": {
+                    "st_razlicic": 12,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": []
+                },
+                "10": {
+                    "st_razlicic": 12,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": []
+                },
+                "11": {
+                    "st_razlicic": 12,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": []
+                }
+            }
+        }
+    ]
 }

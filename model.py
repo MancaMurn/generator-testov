@@ -4,12 +4,18 @@ import json
 import hashlib
 
 class Uporabnik:
-    def __init__(self, ime, geslo, seznam_testov = None):
+    def __init__(self, ime, geslo, seznam_testov=None):
         self.uporabnisko_ime = ime
         self.zasifrirano_geslo = geslo
 
-        self.seznam_testov = seznam_testov
-    
+        self.seznam_testov = seznam_testov or []
+
+    def nov_test(self, test):
+        self.seznam_testov.append(test)
+        index_testa = len(self.seznam_testov)
+        return index_testa - 1
+
+
     @staticmethod
     def prijava(uporabnisko_ime, geslo_v_cistopisu):
         uporabnik = Uporabnik.iz_datoteke(uporabnisko_ime)
@@ -40,10 +46,12 @@ class Uporabnik:
 
 
     def v_slovar(self):
+        testi_v_slovarju = [test.v_slovar() for test in self.seznam_testov]
+
         return {
             "uporabnisko_ime": self.uporabnisko_ime,
             "zasifrirano_geslo": self.zasifrirano_geslo,
-            "seznam_testov": self.seznam_testov
+            "seznam_testov": testi_v_slovarju
         }
 
     def v_datoteko(self):
@@ -67,7 +75,11 @@ class Uporabnik:
     def iz_slovarja(slovar):
         uporabnisko_ime = slovar["uporabnisko_ime"]
         zasifrirano_geslo = slovar["zasifrirano_geslo"]
-        seznam_testov = slovar["seznam_testov"]
+        
+        seznam_testov = []
+        for test_v_slovarju in slovar["seznam_testov"]:
+            seznam_testov.append(Test.iz_slovarja(test_v_slovarju))
+
         return Uporabnik(uporabnisko_ime, zasifrirano_geslo, seznam_testov)
 
     @staticmethod
@@ -81,15 +93,17 @@ class Uporabnik:
 
 
 
-
-
-
 class Razlicica:
-    def __init__(self, formula_resitve, besedilo = "", slovar_podatkov = None):
+    def __init__(self, formula, besedilo = "", slovar_podatkov = None):
         # formula_resitve je oblike npr. "a + b + d / g"
         
         self.besedilo = besedilo
-        self.resitev = self.izracunaj_resitev(formula_resitve)
+
+        if type(formula) is int:
+            self.resitev = formula
+        else:
+            self.resitev = self.izracunaj_resitev(formula) 
+
         self.slovar_podatkov = slovar_podatkov # Oblike npr. {"#1" : 5, "#2" : 7, "#7" : 6}
     
     def izracunaj_resitev(self, formula):
@@ -99,6 +113,20 @@ class Razlicica:
             formula = formula.replace(spremenljivka, str(self.slovar_podatkov[spremenljivka]))
 
         return eval(formula)
+    
+    def v_slovar(self):
+        return {
+            "besedilo" : self.besedilo,
+            "resitev" : self.resitev
+        }
+
+    @staticmethod
+    def iz_slovarja(slovar):
+        besedilo = slovar["besedilo"]
+        resitev = slovar["resitev"]
+
+        razlicica = Razlicica(resitev, besedilo)
+        return razlicica
 
 
 # x = Naloga("Besedilo # asdfasdf # asfdasdf", 5)
@@ -110,14 +138,40 @@ class Razlicica:
 class Naloga:  
     def __init__(self, besedilo = "", st_razlicic = 0, slovar_baz_podatkov = None, formula_resitve = ""):
         self.st_razlicic = st_razlicic # izberemo na zacetku koliko razlicic testov zelimo. vsaka naloga v enem testu ima ta atribut enak.
-        
         self.besedilo = besedilo    # besedilo podamo v obliki niza z spremenljivkami v obliki npr. #1, #3, #7 ...
         self.st_podatkov = self.besedilo.count("#")
-        
         self.formula = formula_resitve # formula je podana v obliki niza z enako poimenovanimi spremenljivkami kot v besedilu.
 
         self.slovar_baz_podatkov = slovar_baz_podatkov or dict() # naj bo oblike {#1 : N, #2: Z, ...} baze naj bi izbrali s klikom, kako omejim množice?
         self.seznam_razlicic = [] # v seznam potem shranimo razlicice naloge v obliki razreda
+
+    def v_slovar(self):
+        seznam_razlicic_v_slovarju = [razlicica.v_slovar() for razlicica in self.seznam_razlicic]
+        return {
+            "st_razlicic" : self.st_razlicic,
+            "besedilo" : self.besedilo,
+            "formula_resitve" : self.formula,
+            "slovar_baz_podatkov" : self.slovar_baz_podatkov,
+            "seznam_razlicic" : seznam_razlicic_v_slovarju
+        }
+
+    @staticmethod
+    def iz_slovarja(slovar):
+        besedilo = slovar["besedilo"]
+        formula_resitve = slovar["formula_resitve"]
+        slovar_baz_podatkov = slovar["slovar_baz_podatkov"]
+        st_razlicic = slovar["st_razlicic"]
+        seznam_razlicic = slovar["seznam_razlicic"]  
+
+        naloga = Naloga(besedilo, st_razlicic, slovar_baz_podatkov, formula_resitve)
+        naloga.seznam_razlicic = [Razlicica.iz_slovarja(razlicica) for razlicica in seznam_razlicic]
+
+        return naloga
+            
+
+    def spremeni_besedilo(self, novo_besedilo):
+        self.besedilo = novo_besedilo
+        self.st_podatkov = self.besedilo.count("#")
 
     def izberi_podatke(self):
     # funkcija iz slovarja podatkov z bazami izbere naključne podatke in jih sharni v nov slovar oblike {#1 : 4, #2 : 4,2 , ...}.
@@ -154,24 +208,45 @@ class Naloga:
 
 
 class Test:
-    def __init__(self, predmet, letnik, st_razlicic, st_nalog):
+    def __init__(self, ucitelj, predmet, letnik, st_razlicic, st_nalog):
         self.predmet = predmet
         self.letnik = letnik
+
+        self.ucitelj = ucitelj
     
         self.glava = self.ustvari_glavo_testa()
         self.st_razlicic = st_razlicic
         self.st_nalog = st_nalog        
-        self.naloge = self.ustvari_seznam_nalog()
-    
+        self.slovar_nalog = {i : Naloga(st_razlicic=st_razlicic) for i in range(st_nalog)}    
 
     def ustvari_glavo_testa(self):
-        return f'''
-        {self.predmet}
-        {self.letnik}
-        '''
+        return f"""
+        predmet:{self.predmet}
+        letnik: {self.letnik}
+        avtor: {self.ucitelj}
+        """
 
+    def v_slovar(self):
+        slovar_nalog_v_slovarju =  {i : self.slovar_nalog[i].v_slovar() for i in range(self.st_nalog)}
+        return {
+            "predmet" : self.predmet,
+            "letnik" : self.letnik,
+            "ucitelj" : self.ucitelj,
+            "st_razlicic" : self.st_razlicic,
+            "st_nalog" : self.st_nalog,
+            "slovar_nalog" : slovar_nalog_v_slovarju
+        }
 
-    def ustvari_seznam_nalog(self):
-        seznam = []
-        for x in range(self.st_nalog):
-            pass
+    @staticmethod
+    def iz_slovarja(slovar):
+        predmet = slovar["predmet"]
+        letnik = slovar["letnik"]
+        ucitelj = slovar["ucitelj"]
+        st_razlicic = slovar["st_razlicic"]
+        st_nalog = slovar["st_nalog"]
+        slovar_nalog = slovar["slovar_nalog"]
+        
+        test = Test(ucitelj, predmet, letnik, st_razlicic, st_nalog)
+        test.slovar_nalog = {int(i) : Naloga.iz_slovarja(slovar_nalog[i]) for i in slovar_nalog}
+
+        return test

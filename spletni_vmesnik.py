@@ -1,5 +1,4 @@
-from _typeshed import Self
-from typing import _get_type_hints_obj_allowed_types
+from inspect import indentsize
 import bottle
 from model import *
 
@@ -54,30 +53,39 @@ def registracija_post():
         except ValueError as e:
             return bottle.template("registracija.html", napake=e)
 
-
-
-
 @bottle.get("/nov_test_osnova/")
 def nov_test__osnova():
     return bottle.template("nov_test_osnova.html")
 
 @bottle.post("/nov_test_osnova/")
 def glava_testa():
+    uporabnisko_ime = bottle.request.get_cookie(PISKOTEK_UPORABNISKO_IME, secret=SKRIVNOST)
+    uporabnik = Uporabnik.iz_datoteke(uporabnisko_ime)
+
     predmet = bottle.request.forms.getunicode("predmet")
     letnik = bottle.request.forms.getunicode("letnik")
-    st_ucencev = bottle.request.forms.getunicode("st_ucencev")
+    st_ucencev = int(bottle.request.forms.getunicode("st_ucencev"))
     st_nalog = int(bottle.request.forms.getunicode("st_nalog"))
+
+    index_testa = uporabnik.nov_test(Test(uporabnik.uporabnisko_ime, predmet, letnik, st_ucencev, st_nalog))
+    uporabnik.v_datoteko()
+
+    return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=uporabnik.seznam_testov[index_testa].slovar_nalog)
+
+@bottle.post("/uredi_test/")
+def uredi_test():
+    uporabnisko_ime = bottle.request.get_cookie(PISKOTEK_UPORABNISKO_IME, secret=SKRIVNOST)
+    uporabnik = Uporabnik.iz_datoteke(uporabnisko_ime)
+
+    izpolnjena_naloga = int(bottle.request.forms.getunicode("izpolnjena_naloga"))
+
+    index_testa = int(bottle.request.forms.getunicode("index_testa"))
+    st_nalog = int(bottle.request.forms.getunicode("st_nalog"))
+    besedilo = bottle.request.forms.getunicode("besedilo")
+
+    uporabnik.seznam_testov[index_testa].slovar_nalog[izpolnjena_naloga].spremeni_besedilo(besedilo)
     
-    # Uporabnik.seznam_testov.append(Test(predmet, letnik, st_ucencev, st_nalog))
-    
-    return bottle.template("nov_test_naloga.html", st_nalog=st_nalog)
-
-
-
-
-
-
-
+    return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=uporabnik.seznam_testov[index_testa].slovar_nalog)
 
 @bottle.post("/odjava/")
 def odjava():
@@ -87,7 +95,6 @@ def odjava():
 @bottle.route('/static/<filename:path>')
 def send_static(filename):
     return bottle.static_file(filename, root='static')
-
 
 if __name__ == "__main__":
     bottle.run(debug=True, reloader=True)

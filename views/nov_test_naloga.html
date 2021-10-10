@@ -1,85 +1,86 @@
 % rebase('base.html')
-
-    <form method="POST">
         
-        <div class="container">
-            <div class="column is-three-fifths is_centerd"> 
-                <h1 class="title is-2 has-text-primary">Naloge</h1>
+    <div class="container">
+        <div class="column is-three-fifths is_centerd"> 
+            <h1 class="title is-2 has-text-primary">Naloge</h1>
 
-                <div class="block">
-                    V okence napiši navodilo naloge. Namesto podatkov vpiši znak # in zaporedno številko podatka.
-                    <div class="has-text-primary">
-                        <p>ZGLED: <i>Avto je v #1 s prevozil #2 km. Kako hitro je peljal, če veš, da se je gibal premo enakomerno?</i></p>
-                    </div>
+            <div class="block">
+                V okence napiši navodilo naloge. Namesto podatkov vpiši znak # in zaporedno številko podatka.
+                <div class="has-text-primary">
+                    <p>ZGLED: <i>Avto je v #1 s prevozil #2 km. Kako hitro je peljal, če veš, da se je gibal premo enakomerno?</i></p>
                 </div>
-
-
-
-                % for i in range(st_nalog):
-                <div class="block">
-                    <h2 class="subtitle is-3">{{i+1}}. naloga</h2>
-                        <div class="block">
-                            <textarea class="textarea" placeholder="Zapiši navodilo naloge."></textarea>
-                        </div>
-                        <div class="control">
-                            <button class="button is-primary">
-                                <strong>Potrdi</strong> 
-                            </button>
-                        </div> 
-                           
-                        
-                        
-                        <!-- <div class="modal">
-                            <div class="modal-background"></div>
-                            <div class="modal-card">
-                                <header class="modal-card-head">
-                                    <p class="modal-card-title">Baze podatkov</p>
-                                    <button class="delete" aria-label="close"></button>
-                                </header>
-                                <section class="modal-card-body">
-                                <p>
-                                    Izberi množice števil, iz katerih bodo izbrani posamezni podatki v nalogi.
-                                </p>
-                    
-                                <ul>
-                                    <li> #1:
-                                        <div class="control">
-                                            <label class="radio">
-                                              <input type="radio" name="answer">
-                                              Naravna števila do 50
-                                            </label>
-                                            <label class="radio">
-                                              <input type="radio" name="answer">
-                                              Realna števila med -50 in 50
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li> #2:
-                                        <div class="control">
-                                            <label class="radio">
-                                              <input type="radio" name="answer">
-                                              Cela števila med -20 in 20
-                                            </label>
-                                            <label class="radio">
-                                              <input type="radio" name="answer">
-                                              Racionalna števila med -10 in 10
-                                            </label>
-                                        </div>
-                                    </li>
-                                </ul>
-                                </section>
-                                <footer class="modal-card-foot">
-                                    <button class="button is-success">Save changes</button>
-                                    <button class="button">Cancel</button>
-                                </footer>
-                            </div>
-                            <button>podatki</button>
-                        </div> -->
-                        
-                </div>
-                % end           
             </div>
-        </div> 
-        </form>
-    
-    
+
+
+
+            % for i in range(st_nalog):
+                % if slovar_nalog[i].besedilo == "":
+            <div class="block">
+                <h2 class="subtitle is-3">{{i+1}}. naloga</h2>
+                    <form method="POST" action="/uredi_test/">
+                        <textarea class="textarea" name="besedilo" placeholder="Zapiši navodilo naloge."></textarea>
+                        <input type="hidden" name="st_nalog" value="{{st_nalog}}">
+                        <input type="hidden" name="izpolnjena_naloga" value="{{i}}">
+                        <input type="hidden" name="index_testa" value="{{index_testa}}">
+                        <button type="submit" class="button is-primary">
+                            Potrdi
+                        </button>
+                    </form>
+                % else:
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit, eaque. Ut quibusdam quas possimus? Nesciunt repudiandae, modi dolorum sunt debitis nam consequatur accusamus cumque ipsam tenetur placeat praesentium impedit atque.</p>
+                % end                          
+                    
+                    
+                    <!-- <div class="modal">
+                        <div class="modal-background"></div>
+                        <div class="modal-card">
+                            <header class="modal-card-head">
+                                <p class="modal-card-title">Baze podatkov</p>
+                                <button class="delete" aria-label="close"></button>
+                            </header>
+                            <section class="modal-card-body">
+                            <p>
+                                Izberi množice števil, iz katerih bodo izbrani posamezni podatki v nalogi.
+                            </p>
+                
+                            <ul>
+                                <li> #1:
+                                    <div class="control">
+                                        <label class="radio">
+                                            <input type="radio" name="answer">
+                                            Naravna števila do 50
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="answer">
+                                            Realna števila med -50 in 50
+                                        </label>
+                                    </div>
+                                </li>
+                                <li> #2:
+                                    <div class="control">
+                                        <label class="radio">
+                                            <input type="radio" name="answer">
+                                            Cela števila med -20 in 20
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="answer">
+                                            Racionalna števila med -10 in 10
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                            </section>
+                            <footer class="modal-card-foot">
+                                <button class="button is-success">Save changes</button>
+                                <button class="button">Cancel</button>
+                            </footer>
+                        </div>
+                        <button>podatki</button>
+                    </div> -->
+                    
+            </div>
+            % end           
+        </div>
+    </div> 
+
+
