@@ -93,6 +93,8 @@ class Uporabnik:
 
 
 
+
+
 class Razlicica:
     def __init__(self, formula, besedilo = "", slovar_podatkov = None):
         # formula_resitve je oblike npr. "a + b + d / g"
@@ -135,6 +137,8 @@ class Razlicica:
 #     print(razlicica.resitev)
 
 
+
+
 class Naloga:  
     def __init__(self, besedilo = "", st_razlicic = 0, slovar_baz_podatkov = None, formula_resitve = ""):
         self.st_razlicic = st_razlicic # izberemo na zacetku koliko razlicic testov zelimo. vsaka naloga v enem testu ima ta atribut enak.
@@ -172,6 +176,7 @@ class Naloga:
     def spremeni_besedilo(self, novo_besedilo):
         self.besedilo = novo_besedilo
         self.st_podatkov = self.besedilo.count("#")
+
 
     def izberi_podatke(self):
     # funkcija iz slovarja podatkov z bazami izbere naključne podatke in jih sharni v nov slovar oblike {#1 : 4, #2 : 4,2 , ...}.

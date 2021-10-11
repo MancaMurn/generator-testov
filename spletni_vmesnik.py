@@ -12,6 +12,7 @@ y = None
 def zacetna_stran():
     return bottle.template("prva_stran.html", napaka=None)
 
+
 @bottle.post("/prijava/")
 def prijava_post():
     uporabnisko_ime = bottle.request.forms.getunicode("uporabnisko_ime")
@@ -33,7 +34,6 @@ def pozdrav_uporabnika():
     return bottle.template("pozdrav_uporabnika.html", uporabnisko_ime=uporabnisko_ime)
 
 
-
 @bottle.get("/registracija/")
 def registracija():
     return bottle.template("registracija.html", napake=[])
@@ -53,6 +53,7 @@ def registracija_post():
         except ValueError as e:
             return bottle.template("registracija.html", napake=e)
 
+
 @bottle.get("/nov_test_osnova/")
 def nov_test__osnova():
     return bottle.template("nov_test_osnova.html")
@@ -70,7 +71,9 @@ def glava_testa():
     index_testa = uporabnik.nov_test(Test(uporabnik.uporabnisko_ime, predmet, letnik, st_ucencev, st_nalog))
     uporabnik.v_datoteko()
 
-    return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=uporabnik.seznam_testov[index_testa].slovar_nalog)
+    return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=uporabnik.seznam_testov[index_testa].slovar_nalog, st_podatkov = None)
+
+
 
 @bottle.post("/uredi_test/")
 def uredi_test():
@@ -78,14 +81,41 @@ def uredi_test():
     uporabnik = Uporabnik.iz_datoteke(uporabnisko_ime)
 
     izpolnjena_naloga = int(bottle.request.forms.getunicode("izpolnjena_naloga"))
-
     index_testa = int(bottle.request.forms.getunicode("index_testa"))
     st_nalog = int(bottle.request.forms.getunicode("st_nalog"))
+
     besedilo = bottle.request.forms.getunicode("besedilo")
+    st_podatkov = besedilo.count("#")
 
     uporabnik.seznam_testov[index_testa].slovar_nalog[izpolnjena_naloga].spremeni_besedilo(besedilo)
-    
-    return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=uporabnik.seznam_testov[index_testa].slovar_nalog)
+    uporabnik.v_datoteko()
+
+    return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=uporabnik.seznam_testov[index_testa].slovar_nalog, st_podatkov = st_podatkov)
+
+@bottle.post("/uredi_nalogo/")
+def uredi_nalogo():
+    uporabnisko_ime = bottle.request.get_cookie(PISKOTEK_UPORABNISKO_IME, secret=SKRIVNOST)
+    uporabnik = Uporabnik.iz_datoteke(uporabnisko_ime)
+
+    izpolnjena_naloga = int(bottle.request.forms.getunicode("izpolnjena_naloga"))
+    index_testa = int(bottle.request.forms.getunicode("index_testa"))
+    st_nalog = int(bottle.request.forms.getunicode("st_nalog"))
+    st_podatkov = int(bottle.request.forms.getunicode("st_podatkov"))
+
+    podatki = {}
+    for i in range(st_podatkov):
+        podatki[f"#{i}"] = bottle.request.forms['answer']
+
+    uporabnik.seznam_testov[index_testa].slovar_nalog[izpolnjena_naloga].vstavi_podatke_v_besedilo(podatki)
+    uporabnik.v_datoteko()
+
+    return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=uporabnik.seznam_testov[index_testa].slovar_nalog, st_podatkov = None)
+
+
+
+
+
+
 
 @bottle.post("/odjava/")
 def odjava():

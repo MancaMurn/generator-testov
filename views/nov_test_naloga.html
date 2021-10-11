@@ -27,56 +27,49 @@
                         </button>
                     </form>
                 % else:
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit, eaque. Ut quibusdam quas possimus? Nesciunt repudiandae, modi dolorum sunt debitis nam consequatur accusamus cumque ipsam tenetur placeat praesentium impedit atque.</p>
-                % end                          
-                    
-                    
-                    <!-- <div class="modal">
-                        <div class="modal-background"></div>
-                        <div class="modal-card">
-                            <header class="modal-card-head">
-                                <p class="modal-card-title">Baze podatkov</p>
-                                <button class="delete" aria-label="close"></button>
-                            </header>
-                            <section class="modal-card-body">
-                            <p>
-                                Izberi množice števil, iz katerih bodo izbrani posamezni podatki v nalogi.
-                            </p>
-                
+                <h2 class="subtitle is-3">{{i+1}}. naloga</h2>
+                <textarea class="textarea has-background-grey-lighter" name="besedilo" readonly>{{slovar_nalog[i].besedilo}}</textarea>
+        
+                <h3 class="subtitle is-5">Baze podatkov:</h3>
+                    <p>Izberi množice števil, iz katerih bodo izbrani posamezni podatki v nalogi.</p>
+                    <div class="block">
+                        <form method="POST" action="/uredi_nalogo/">
+                            <input type="hidden" name="st_nalog" value="{{st_nalog}}">
+                            <input type="hidden" name="izpolnjena_naloga" value="{{i}}">
+                            <input type="hidden" name="index_testa" value="{{index_testa}}">
+                            <input type="hidden" name="st_podatkov" value="{{st_podatkov}}">
                             <ul>
-                                <li> #1:
+                                %for i in range(st_podatkov):
+                                <li> #{{i+1}}:
                                     <div class="control">
                                         <label class="radio">
-                                            <input type="radio" name="answer">
+                                            <input type="radio" name="answer" value="0">
                                             Naravna števila do 50
                                         </label>
                                         <label class="radio">
-                                            <input type="radio" name="answer">
+                                            <input type="radio" name="answer" value="1">
+                                            Racionalna števila med -50 in 50
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="answer" value="2">
                                             Realna števila med -50 in 50
                                         </label>
                                     </div>
                                 </li>
-                                <li> #2:
-                                    <div class="control">
-                                        <label class="radio">
-                                            <input type="radio" name="answer">
-                                            Cela števila med -20 in 20
-                                        </label>
-                                        <label class="radio">
-                                            <input type="radio" name="answer">
-                                            Racionalna števila med -10 in 10
-                                        </label>
-                                    </div>
-                                </li>
+                                %end
                             </ul>
-                            </section>
-                            <footer class="modal-card-foot">
-                                <button class="button is-success">Save changes</button>
-                                <button class="button">Cancel</button>
-                            </footer>
-                        </div>
-                        <button>podatki</button>
-                    </div> -->
+                            <button type="submit" class="button is-primary">
+                                Potrdi
+                            </button>
+                        </form>
+                    </div>
+
+
+
+                % end                          
+                    
+                    
+                   
                     
             </div>
             % end           
