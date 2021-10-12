@@ -71,7 +71,7 @@ def glava_testa():
     index_testa = uporabnik.nov_test(Test(uporabnik.uporabnisko_ime, predmet, letnik, st_ucencev, st_nalog))
     uporabnik.v_datoteko()
 
-    return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=uporabnik.seznam_testov[index_testa].slovar_nalog, st_podatkov = None)
+    return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=uporabnik.seznam_testov[index_testa].slovar_nalog)
 
 
 
@@ -83,14 +83,14 @@ def uredi_test():
     izpolnjena_naloga = int(bottle.request.forms.getunicode("izpolnjena_naloga"))
     index_testa = int(bottle.request.forms.getunicode("index_testa"))
     st_nalog = int(bottle.request.forms.getunicode("st_nalog"))
-
     besedilo = bottle.request.forms.getunicode("besedilo")
-    st_podatkov = besedilo.count("#")
 
     uporabnik.seznam_testov[index_testa].slovar_nalog[izpolnjena_naloga].spremeni_besedilo(besedilo)
     uporabnik.v_datoteko()
 
-    return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=uporabnik.seznam_testov[index_testa].slovar_nalog, st_podatkov = st_podatkov)
+    return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=uporabnik.seznam_testov[index_testa].slovar_nalog)
+
+
 
 @bottle.post("/uredi_nalogo/")
 def uredi_nalogo():
@@ -100,16 +100,22 @@ def uredi_nalogo():
     izpolnjena_naloga = int(bottle.request.forms.getunicode("izpolnjena_naloga"))
     index_testa = int(bottle.request.forms.getunicode("index_testa"))
     st_nalog = int(bottle.request.forms.getunicode("st_nalog"))
-    st_podatkov = int(bottle.request.forms.getunicode("st_podatkov"))
 
+    formula_resitve = bottle.request.forms.getunicode("formula_resitve")
+
+    st_podatkov = uporabnik.seznam_testov[index_testa].slovar_nalog[izpolnjena_naloga].st_podatkov
     podatki = {}
     for i in range(st_podatkov):
-        podatki[f"#{i}"] = bottle.request.forms['answer']
+        podatki[f"#{i}"] = bottle.request.forms.getunicode("answer")
 
-    uporabnik.seznam_testov[index_testa].slovar_nalog[izpolnjena_naloga].vstavi_podatke_v_besedilo(podatki)
+    naloga = uporabnik.seznam_testov[index_testa].slovar_nalog[izpolnjena_naloga]
+    naloga.spremeni_slovar_baz(podatki)
+    naloga.spremeni_formulo(formula_resitve)
+    naloga.ustvari_razlicice()
+    
     uporabnik.v_datoteko()
 
-    return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=uporabnik.seznam_testov[index_testa].slovar_nalog, st_podatkov = None)
+    return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=uporabnik.seznam_testov[index_testa].slovar_nalog)
 
 
 

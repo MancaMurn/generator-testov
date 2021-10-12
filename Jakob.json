@@ -4,21 +4,21 @@
     "seznam_testov": [
         {
             "predmet": "Matematika",
-            "letnik": "1. letnik",
+            "letnik": "2. letnik",
             "ucitelj": "Jakob",
             "st_razlicic": 8,
             "st_nalog": 4,
             "slovar_nalog": {
                 "0": {
                     "st_razlicic": 8,
-                    "besedilo": "Avto je v #1 s prevozil #2 km. Kako hitro je peljal, ï¿½e veï¿½, da se je gibal premo enakomerno?",
+                    "besedilo": "Avto je v #1 s prevozil #2 km. Kako hitro je peljal, èe veš, da se je gibal premo enakomerno?",
                     "formula_resitve": "",
                     "slovar_baz_podatkov": {},
                     "seznam_razlicic": []
                 },
                 "1": {
                     "st_razlicic": 8,
-                    "besedilo": "#1 in #2 blablabla #3.?",
+                    "besedilo": "Seštej števila #1, #2 in #4. Rezultat zapiši na dve decimalki.",
                     "formula_resitve": "",
                     "slovar_baz_podatkov": {},
                     "seznam_razlicic": []
@@ -32,6 +32,76 @@
                 },
                 "3": {
                     "st_razlicic": 8,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": []
+                }
+            }
+        },
+        {
+            "predmet": "Matematika",
+            "letnik": "2. letnik",
+            "ucitelj": "Jakob",
+            "st_razlicic": 8,
+            "st_nalog": 4,
+            "slovar_nalog": {
+                "0": {
+                    "st_razlicic": 8,
+                    "besedilo": "Avto je v #1 s prevozil #2 km. Kako hitro je peljal, èe veš, da se je gibal premo enakomerno?",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": []
+                },
+                "1": {
+                    "st_razlicic": 8,
+                    "besedilo": "#1#2#4 #\r\n",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": []
+                },
+                "2": {
+                    "st_razlicic": 8,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": []
+                },
+                "3": {
+                    "st_razlicic": 8,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": []
+                }
+            }
+        },
+        {
+            "predmet": "Matematika",
+            "letnik": "2. letnik",
+            "ucitelj": "Jakob",
+            "st_razlicic": 7,
+            "st_nalog": 3,
+            "slovar_nalog": {
+                "0": {
+                    "st_razlicic": 7,
+                    "besedilo": "Avto je v #1 s prevozil #2 km. Kako hitro je peljal, èe veš, da se je gibal premo enakomerno?",
+                    "formula_resitve": null,
+                    "slovar_baz_podatkov": {
+                        "#0": null,
+                        "#1": null
+                    },
+                    "seznam_razlicic": []
+                },
+                "1": {
+                    "st_razlicic": 7,
+                    "besedilo": "#1, #2, #4, # #\r\n",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": []
+                },
+                "2": {
+                    "st_razlicic": 7,
                     "besedilo": "",
                     "formula_resitve": "",
                     "slovar_baz_podatkov": {},

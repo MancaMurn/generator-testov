@@ -108,6 +108,7 @@ class Razlicica:
 
         self.slovar_podatkov = slovar_podatkov # Oblike npr. {"#1" : 5, "#2" : 7, "#7" : 6}
     
+
     def izracunaj_resitev(self, formula):
         # funkcija v formulo v obliki niza zaporedoma vstavi podatke in nato izracuna vrednost izraza
         
@@ -115,6 +116,7 @@ class Razlicica:
             formula = formula.replace(spremenljivka, str(self.slovar_podatkov[spremenljivka]))
 
         return eval(formula)
+    
     
     def v_slovar(self):
         return {
@@ -176,6 +178,12 @@ class Naloga:
     def spremeni_besedilo(self, novo_besedilo):
         self.besedilo = novo_besedilo
         self.st_podatkov = self.besedilo.count("#")
+
+    def spremeni_formulo(self, formula):
+        self.formula = formula
+    
+    def spremeni_slovar_baz(self, slovar):
+        self.slovar_baz_podatkov = slovar
 
 
     def izberi_podatke(self):
