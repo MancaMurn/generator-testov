@@ -1,37 +1,30 @@
 {
     "uporabnisko_ime": "Jakob",
-    "zasifrirano_geslo": "1359599007$c48deb691be397e11e2ca9c16cac97519a20accc59a29c9611bf3d874f891d610f707df01d45b793bb7b04e27a7d461a4a702d4fe425f1a3933ec4866d56098b",
+    "zasifrirano_geslo": "3506383670$b0cbf34fb900d4c6708ef4855a7baf316427b0abeba7ba220f7ab517f22682bffa3a7577e3765a2d9306a9af3eaeff0ef90ace18f74a16beaf6bee7ad87dbc0f",
     "seznam_testov": [
         {
-            "predmet": "Matematika",
-            "letnik": "2. letnik",
+            "predmet": "Fizika",
+            "letnik": "2",
             "ucitelj": "Jakob",
-            "st_razlicic": 8,
-            "st_nalog": 4,
+            "st_razlicic": 7,
+            "st_nalog": 3,
             "slovar_nalog": {
                 "0": {
-                    "st_razlicic": 8,
-                    "besedilo": "Avto je v #1 s prevozil #2 km. Kako hitro je peljal, èe veš, da se je gibal premo enakomerno?",
+                    "st_razlicic": 7,
+                    "besedilo": "Avto je v #1 s prevozil #2 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
                     "formula_resitve": "",
                     "slovar_baz_podatkov": {},
                     "seznam_razlicic": []
                 },
                 "1": {
-                    "st_razlicic": 8,
-                    "besedilo": "Seštej števila #1, #2 in #4. Rezultat zapiši na dve decimalki.",
-                    "formula_resitve": "",
-                    "slovar_baz_podatkov": {},
-                    "seznam_razlicic": []
-                },
-                "2": {
-                    "st_razlicic": 8,
+                    "st_razlicic": 7,
                     "besedilo": "",
                     "formula_resitve": "",
                     "slovar_baz_podatkov": {},
                     "seznam_razlicic": []
                 },
-                "3": {
-                    "st_razlicic": 8,
+                "2": {
+                    "st_razlicic": 7,
                     "besedilo": "",
                     "formula_resitve": "",
                     "slovar_baz_podatkov": {},
@@ -40,35 +33,35 @@
             }
         },
         {
-            "predmet": "Matematika",
+            "predmet": "kemija",
             "letnik": "2. letnik",
             "ucitelj": "Jakob",
-            "st_razlicic": 8,
+            "st_razlicic": 7,
             "st_nalog": 4,
             "slovar_nalog": {
                 "0": {
-                    "st_razlicic": 8,
-                    "besedilo": "Avto je v #1 s prevozil #2 km. Kako hitro je peljal, èe veš, da se je gibal premo enakomerno?",
+                    "st_razlicic": 7,
+                    "besedilo": "Avto je v #1 s prevozil #2 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
                     "formula_resitve": "",
                     "slovar_baz_podatkov": {},
                     "seznam_razlicic": []
                 },
                 "1": {
-                    "st_razlicic": 8,
-                    "besedilo": "#1#2#4 #\r\n",
+                    "st_razlicic": 7,
+                    "besedilo": "",
                     "formula_resitve": "",
                     "slovar_baz_podatkov": {},
                     "seznam_razlicic": []
                 },
                 "2": {
-                    "st_razlicic": 8,
+                    "st_razlicic": 7,
                     "besedilo": "",
                     "formula_resitve": "",
                     "slovar_baz_podatkov": {},
                     "seznam_razlicic": []
                 },
                 "3": {
-                    "st_razlicic": 8,
+                    "st_razlicic": 7,
                     "besedilo": "",
                     "formula_resitve": "",
                     "slovar_baz_podatkov": {},
@@ -85,17 +78,46 @@
             "slovar_nalog": {
                 "0": {
                     "st_razlicic": 7,
-                    "besedilo": "Avto je v #1 s prevozil #2 km. Kako hitro je peljal, èe veš, da se je gibal premo enakomerno?",
-                    "formula_resitve": null,
+                    "besedilo": "Avto je v #1 s prevozil #2 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                    "formula_resitve": "#2 / #1",
                     "slovar_baz_podatkov": {
-                        "#0": null,
-                        "#1": null
+                        "#1": "R",
+                        "#2": "N"
                     },
-                    "seznam_razlicic": []
+                    "seznam_razlicic": [
+                        {
+                            "besedilo": "Avto je v -27.662 s prevozil 44 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": -1.5906297447762274
+                        },
+                        {
+                            "besedilo": "Avto je v 21.45 s prevozil 6 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": 0.27972027972027974
+                        },
+                        {
+                            "besedilo": "Avto je v 27.463 s prevozil 26 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": 0.9467283253832429
+                        },
+                        {
+                            "besedilo": "Avto je v -6.792 s prevozil 9 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": -1.325088339222615
+                        },
+                        {
+                            "besedilo": "Avto je v 16.098 s prevozil 39 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": 2.422661200149087
+                        },
+                        {
+                            "besedilo": "Avto je v 15.886 s prevozil 9 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": 0.5665365730832179
+                        },
+                        {
+                            "besedilo": "Avto je v -40.221 s prevozil 5 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": -0.12431316973720197
+                        }
+                    ]
                 },
                 "1": {
                     "st_razlicic": 7,
-                    "besedilo": "#1, #2, #4, # #\r\n",
+                    "besedilo": "",
                     "formula_resitve": "",
                     "slovar_baz_podatkov": {},
                     "seznam_razlicic": []
@@ -106,6 +128,131 @@
                     "formula_resitve": "",
                     "slovar_baz_podatkov": {},
                     "seznam_razlicic": []
+                }
+            }
+        },
+        {
+            "predmet": "Kemija",
+            "letnik": "2. lietnik",
+            "ucitelj": "Jakob",
+            "st_razlicic": 5,
+            "st_nalog": 7,
+            "slovar_nalog": {
+                "0": {
+                    "st_razlicic": 5,
+                    "besedilo": "asdf",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": []
+                },
+                "1": {
+                    "st_razlicic": 5,
+                    "besedilo": "asdf",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": []
+                },
+                "2": {
+                    "st_razlicic": 5,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": []
+                },
+                "3": {
+                    "st_razlicic": 5,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": []
+                },
+                "4": {
+                    "st_razlicic": 5,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": []
+                },
+                "5": {
+                    "st_razlicic": 5,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": []
+                },
+                "6": {
+                    "st_razlicic": 5,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": []
+                }
+            }
+        },
+        {
+            "predmet": "Kem",
+            "letnik": "2. l",
+            "ucitelj": "Jakob",
+            "st_razlicic": 3,
+            "st_nalog": 2,
+            "slovar_nalog": {
+                "0": {
+                    "st_razlicic": 3,
+                    "besedilo": "Avto je v #1 s prevozil #2 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno",
+                    "formula_resitve": "#2 / #1",
+                    "slovar_baz_podatkov": {
+                        "#1": "N",
+                        "#2": "N"
+                    },
+                    "seznam_razlicic": [
+                        {
+                            "besedilo": "Avto je v 34 s prevozil 32 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno",
+                            "resitev": 0.941
+                        },
+                        {
+                            "besedilo": "Avto je v 4 s prevozil 48 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno",
+                            "resitev": 12.0
+                        },
+                        {
+                            "besedilo": "Avto je v 4 s prevozil 4 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno",
+                            "resitev": 1.0
+                        }
+                    ]
+                },
+                "1": {
+                    "st_razlicic": 3,
+                    "besedilo": "Avto je v #1 s prevozil #2 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno",
+                    "formula_resitve": "#2 / #1",
+                    "slovar_baz_podatkov": {
+                        "#1": "N",
+                        "#2": "N"
+                    },
+                    "seznam_razlicic": [
+                        {
+                            "besedilo": "Avto je v 20 s prevozil 14 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno",
+                            "resitev": 0.7
+                        },
+                        {
+                            "besedilo": "Avto je v 45 s prevozil 18 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno",
+                            "resitev": 0.4
+                        },
+                        {
+                            "besedilo": "Avto je v 20 s prevozil 20 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno",
+                            "resitev": 1.0
+                        },
+                        {
+                            "besedilo": "Avto je v 34 s prevozil 35 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno",
+                            "resitev": 1.029
+                        },
+                        {
+                            "besedilo": "Avto je v 20 s prevozil 47 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno",
+                            "resitev": 2.35
+                        },
+                        {
+                            "besedilo": "Avto je v 13 s prevozil 30 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno",
+                            "resitev": 2.308
+                        }
+                    ]
                 }
             }
         }

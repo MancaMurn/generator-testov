@@ -54,15 +54,15 @@
                                     <li> <b>#{{j+1}}:</b>
                                     <div class="control">
                                         <label class="radio">
-                                            <input type="radio" name="answer{{j+1}}" value="0">
+                                            <input type="radio" name="answer{{j+1}}" value="R">
                                             <mathbb>R</mathbb>
                                         </label>
                                         <label class="radio">
-                                            <input type="radio" name="answer{{j+1}}" value="1">
+                                            <input type="radio" name="answer{{j+1}}" value="Q">
                                             <mathbb>Q</mathbb>
                                         </label>
                                         <label class="radio">
-                                            <input type="radio" name="answer{{j+1}}" value="2">
+                                            <input type="radio" name="answer{{j+1}}" value="N">
                                             <mathbb>N</mathbb>
                                         </label>
                                     </div>
@@ -96,7 +96,23 @@
                     <textarea class="textarea has-background-grey-lighter" name="besedilo" readonly>{{slovar_nalog[i].besedilo}}</textarea>
                 </div>
                 % end                        
-            % end           
+            % end
+            
+            % narisi_gumbek = True
+
+            % for i in range(st_nalog):
+                % if not slovar_nalog[i].slovar_baz_podatkov:
+                    <button class="button is-primary" title="Disabled button" disabled>Zaključi</button>
+                    % narisi_gumbek = False
+                    % break
+                % end
+            % end
+
+            % if narisi_gumbek == True:
+            <form method="GET" action="/test/"> 
+                <button class="button is-primary" title="Disabled button">Zaključi</button>
+            </form>
+            % end
         </div>
     </div> 
 

@@ -1,6 +1,8 @@
 from inspect import indentsize
+from random import randint
 import bottle
 from model import *
+from fractions import Fraction
 
 PISKOTEK_UPORABNISKO_IME = "uporabnisko_ime"
 SKRIVNOST = "to je ena skrivnost"
@@ -106,7 +108,8 @@ def uredi_nalogo():
     st_podatkov = uporabnik.seznam_testov[index_testa].slovar_nalog[izpolnjena_naloga].st_podatkov
     podatki = {}
     for i in range(st_podatkov):
-        podatki[f"#{i}"] = bottle.request.forms.getunicode("answer")
+        x = bottle.request.forms.getunicode(f"answer{i+1}")
+        podatki[f"#{i+1}"] = x
 
     naloga = uporabnik.seznam_testov[index_testa].slovar_nalog[izpolnjena_naloga]
     naloga.spremeni_slovar_baz(podatki)

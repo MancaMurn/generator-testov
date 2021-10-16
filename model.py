@@ -2,6 +2,7 @@ from bottle import JSONPlugin
 import random
 import json
 import hashlib
+from fractions import Fraction
 
 class Uporabnik:
     def __init__(self, ime, geslo, seznam_testov=None):
@@ -59,7 +60,7 @@ class Uporabnik:
         with open(
             Uporabnik.ime_uporabnikove_datoteke(self.uporabnisko_ime), "w"
         ) as datoteka:
-            json.dump(self.v_slovar(), datoteka, ensure_ascii=False, indent=4)
+            json.dump(self.v_slovar(), datoteka, ensure_ascii=True, indent=4)
 
 
     def preveri_geslo(self, geslo_v_cistopisu):
@@ -100,22 +101,21 @@ class Razlicica:
         # formula_resitve je oblike npr. "a + b + d / g"
         
         self.besedilo = besedilo
-
-        if type(formula) is int:
-            self.resitev = formula
-        else:
-            self.resitev = self.izracunaj_resitev(formula) 
-
         self.slovar_podatkov = slovar_podatkov # Oblike npr. {"#1" : 5, "#2" : 7, "#7" : 6}
+
+        if type(formula) is str:
+            self.resitev = self.izracunaj_resitev(formula) 
+        else:
+           self.resitev = formula
     
 
     def izracunaj_resitev(self, formula):
         # funkcija v formulo v obliki niza zaporedoma vstavi podatke in nato izracuna vrednost izraza
-        
+
         for spremenljivka in self.slovar_podatkov:
             formula = formula.replace(spremenljivka, str(self.slovar_podatkov[spremenljivka]))
-
-        return eval(formula)
+        print(formula)
+        return round(eval(formula), 3)
     
     
     def v_slovar(self):
@@ -123,6 +123,7 @@ class Razlicica:
             "besedilo" : self.besedilo,
             "resitev" : self.resitev
         }
+
 
     @staticmethod
     def iz_slovarja(slovar):
@@ -187,11 +188,25 @@ class Naloga:
 
 
     def izberi_podatke(self):
-    # funkcija iz slovarja podatkov z bazami izbere naključne podatke in jih sharni v nov slovar oblike {#1 : 4, #2 : 4,2 , ...}.
+    # funkcija iz slovarja podatkov z bazami {#1 : R, #2 : Q} izbere naključne podatke in jih sharni v nov slovar oblike {#1 : 4, #2 : 4,2 , ...}.
 
-        slovar = {} 
-        for x in self.slovar_baz_podatkov:
-            slovar[x] = random.coice(self.slovar_baz_podatkov[x])
+        slovar = {}
+        for podatek in self.slovar_baz_podatkov:
+            mnozica_izibre = self.slovar_baz_podatkov[podatek]
+
+            if mnozica_izibre == "N":
+                y = random.randint(1, 50)
+            elif mnozica_izibre == "Q":
+                stevec = random.randint(-50, 50)
+                while stevec == 0: # zelo majhna verjetnost, da gre v neskončnost
+                    stevec = random.randint(-50, 50)
+                imenovalec = random.randint(1, 50)
+                y = Fraction(stevec, imenovalec)   
+            elif mnozica_izibre == "R":
+                y = round(random.uniform(-50, 50), 3)
+                while y == 0: #itak je skor nemogoče, ampak ok
+                    y = round(random.uniform(-50, 50), 3)
+            slovar[podatek] = y
         return slovar  
         
 
