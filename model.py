@@ -114,7 +114,6 @@ class Razlicica:
 
         for spremenljivka in self.slovar_podatkov:
             formula = formula.replace(spremenljivka, str(self.slovar_podatkov[spremenljivka]))
-        print(formula)
         return round(eval(formula), 3)
     
     
@@ -194,15 +193,27 @@ class Naloga:
         for podatek in self.slovar_baz_podatkov:
             mnozica_izibre = self.slovar_baz_podatkov[podatek]
 
-            if mnozica_izibre == "N":
+            if mnozica_izibre == "N1":
+                y = random.randint(1, 10)
+            elif mnozica_izibre == "N2":
                 y = random.randint(1, 50)
-            elif mnozica_izibre == "Q":
+            elif mnozica_izibre == "Q1":
+                stevec = random.randint(-10, 10)
+                while stevec == 0: # zelo majhna verjetnost, da gre v neskončnost
+                    stevec = random.randint(-10, 10)
+                imenovalec = random.randint(1, 10)
+                y = Fraction(stevec, imenovalec)
+            elif mnozica_izibre == "Q2":
                 stevec = random.randint(-50, 50)
                 while stevec == 0: # zelo majhna verjetnost, da gre v neskončnost
                     stevec = random.randint(-50, 50)
                 imenovalec = random.randint(1, 50)
-                y = Fraction(stevec, imenovalec)   
-            elif mnozica_izibre == "R":
+                y = Fraction(stevec, imenovalec)
+            elif mnozica_izibre == "R1":
+                y = round(random.uniform(-10, 10), 3)
+                while y == 0: #itak je skor nemogoče, ampak ok
+                    y = round(random.uniform(-10, 10), 3)
+            elif mnozica_izibre == "R2":
                 y = round(random.uniform(-50, 50), 3)
                 while y == 0: #itak je skor nemogoče, ampak ok
                     y = round(random.uniform(-50, 50), 3)

@@ -54,16 +54,28 @@
                                     <li> <b>#{{j+1}}:</b>
                                     <div class="control">
                                         <label class="radio">
-                                            <input type="radio" name="answer{{j+1}}" value="R">
-                                            <mathbb>R</mathbb>
+                                            <input type="radio" name="answer{{j+1}}" value="R1">
+                                            <mathbb>Realna števila med -10 in 10</mathbb>
                                         </label>
                                         <label class="radio">
-                                            <input type="radio" name="answer{{j+1}}" value="Q">
-                                            <mathbb>Q</mathbb>
+                                            <input type="radio" name="answer{{j+1}}" value="R2">
+                                            <mathbb>Realna števila med -50 in 50</mathbb>
                                         </label>
                                         <label class="radio">
-                                            <input type="radio" name="answer{{j+1}}" value="N">
-                                            <mathbb>N</mathbb>
+                                            <input type="radio" name="answer{{j+1}}" value="N1">
+                                            <mathbb>Naravna števila do 10</mathbb>
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="answer{{j+1}}" value="N2">
+                                            <mathbb>Naravna števila do 50</mathbb>
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="answer{{j+1}}" value="Q1">
+                                            <mathbb>Racionalna števila med -10 in 10</mathbb>
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="answer{{j+1}}" value="Q2">
+                                            <mathbb>Racionalna števila med -50 in 50</mathbb>
                                         </label>
                                     </div>
                                     </li>
@@ -109,7 +121,8 @@
             % end
 
             % if narisi_gumbek == True:
-            <form method="GET" action="/test/"> 
+            <form method="POST" action="/test/">
+                <input type="hidden" name="index_testa" value="{{index_testa}}"> 
                 <button class="button is-primary" title="Disabled button">Zaključi</button>
             </form>
             % end

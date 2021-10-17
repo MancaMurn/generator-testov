@@ -121,7 +121,22 @@ def uredi_nalogo():
     return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=uporabnik.seznam_testov[index_testa].slovar_nalog)
 
 
+@bottle.post("/test/")
+def test():
+    uporabnisko_ime = bottle.request.get_cookie(PISKOTEK_UPORABNISKO_IME, secret=SKRIVNOST)
+    uporabnik = Uporabnik.iz_datoteke(uporabnisko_ime)
+    index_testa = int(bottle.request.forms.getunicode("index_testa"))
 
+    test = uporabnik.seznam_testov[index_testa]
+    for i in range(test.st_razlicic):
+        #za vsakega učenca naredimo svojo json datoteko s testom.
+        with open(f"ucenec{i}", "w") as datoteka:
+            json.dump(test.glava, datoteka, ensure_ascii=True, indent=4)
+            for j in range(len(test.slovar_nalog)):
+                naloga = test.slovar_nalog[f"{j}"]
+                json.dump(naloga.seznam_razlicic[i], datoteka, ensure_ascii=True, indent=4)
+
+    return bottle.template("testi.html")
 
 
 
