@@ -145,11 +145,19 @@ def test():
 
     for i in range(test.st_razlicic):
         dokument = docx.Document()
-        dokument.add_heading(test.glava, 0)
+        dokument.add_heading(test.glava, level = 1)
         for j in slovar_nalog:
             seznam_razlicic = slovar_nalog[j].seznam_razlicic
-            dokument.add_paragraph(seznam_razlicic[i])
+            print(seznam_razlicic)
+            razlicica = seznam_razlicic[i]
+            print(razlicica)
+            besedilo = razlicica.besedilo()
+            print(besedilo)
+
+            dokument.add_heading(f"{j}. naloga")
+            dokument.add_paragraph(f"{besedilo}")
             dokument.add_page_break()
+
         dokument.save(f'{index_testa}_ucenec_{i}.docx')
 
     return bottle.template("test.html")
