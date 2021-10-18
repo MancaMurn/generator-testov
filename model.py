@@ -4,6 +4,12 @@ import json
 import hashlib
 from fractions import Fraction
 
+# NEDOKONCAN_TEST = "NT"
+# KONCAN_TEST = "KT"
+
+# NEDOKONCANA_NALOGA = "NN"
+# KONCANA_NALOGA = "KN"
+
 class Uporabnik:
     def __init__(self, ime, geslo, seznam_testov=None):
         self.uporabnisko_ime = ime
@@ -15,7 +21,6 @@ class Uporabnik:
         self.seznam_testov.append(test)
         index_testa = len(self.seznam_testov)
         return index_testa - 1
-
 
     @staticmethod
     def prijava(uporabnisko_ime, geslo_v_cistopisu):
@@ -45,7 +50,6 @@ class Uporabnik:
         h.update(posoljeno_geslo.encode(encoding="utf-8"))
         return f"{sol}${h.hexdigest()}"
 
-
     def v_slovar(self):
         testi_v_slovarju = [test.v_slovar() for test in self.seznam_testov]
 
@@ -62,7 +66,6 @@ class Uporabnik:
         ) as datoteka:
             json.dump(self.v_slovar(), datoteka, ensure_ascii=True, indent=4)
 
-
     def preveri_geslo(self, geslo_v_cistopisu):
         sol, _ = self.zasifrirano_geslo.split("$")
         return self.zasifrirano_geslo == Uporabnik._zasifriraj_geslo(geslo_v_cistopisu, sol)
@@ -70,7 +73,6 @@ class Uporabnik:
     @staticmethod
     def ime_uporabnikove_datoteke(uporabnisko_ime):
         return f"{uporabnisko_ime}.json"
-
 
     @staticmethod
     def iz_slovarja(slovar):
@@ -106,8 +108,8 @@ class Razlicica:
         if type(formula) is str:
             self.resitev = self.izracunaj_resitev(formula) 
         else:
-           self.resitev = formula
-    
+            self.resitev = formula
+
 
     def izracunaj_resitev(self, formula):
         # funkcija v formulo v obliki niza zaporedoma vstavi podatke in nato izracuna vrednost izraza
@@ -115,14 +117,13 @@ class Razlicica:
         for spremenljivka in self.slovar_podatkov:
             formula = formula.replace(spremenljivka, str(self.slovar_podatkov[spremenljivka]))
         return round(eval(formula), 3)
-    
+
     
     def v_slovar(self):
         return {
             "besedilo" : self.besedilo,
             "resitev" : self.resitev
         }
-
 
     @staticmethod
     def iz_slovarja(slovar):
@@ -131,13 +132,6 @@ class Razlicica:
 
         razlicica = Razlicica(resitev, besedilo)
         return razlicica
-
-
-# x = Naloga("Besedilo # asdfasdf # asfdasdf", 5)
-# for razlicica in x.seznam_razlicic:
-#     print(razlicica.besedilo)   
-#     print(razlicica.resitev)
-
 
 
 
@@ -151,6 +145,11 @@ class Naloga:
         self.slovar_baz_podatkov = slovar_baz_podatkov or dict() # naj bo oblike {#1 : N, #2: Z, ...} baze naj bi izbrali s klikom, kako omejim množice?
         self.seznam_razlicic = [] # v seznam potem shranimo razlicice naloge v obliki razreda
 
+        if self.besedilo == "" or self.slovar_baz_podatkov == dict() or self.formula == "":
+            self.stanje = "NN"
+        else:
+            self.stanje = "KN"
+
     def v_slovar(self):
         seznam_razlicic_v_slovarju = [razlicica.v_slovar() for razlicica in self.seznam_razlicic]
         return {
@@ -158,7 +157,8 @@ class Naloga:
             "besedilo" : self.besedilo,
             "formula_resitve" : self.formula,
             "slovar_baz_podatkov" : self.slovar_baz_podatkov,
-            "seznam_razlicic" : seznam_razlicic_v_slovarju
+            "seznam_razlicic" : seznam_razlicic_v_slovarju,
+            "stanje" : self.stanje
         }
 
     @staticmethod
@@ -185,38 +185,35 @@ class Naloga:
     def spremeni_slovar_baz(self, slovar):
         self.slovar_baz_podatkov = slovar
 
+    def spremeni_stanje(self, stanje):
+        self.stanje = stanje
 
     def izberi_podatke(self):
-    # funkcija iz slovarja podatkov z bazami {#1 : R, #2 : Q} izbere naključne podatke in jih sharni v nov slovar oblike {#1 : 4, #2 : 4,2 , ...}.
+    # funkcija iz slovarja podatkov z bazami {#1 : (R, 0, 10), #2 : (Q, 3, 10)} izbere naključne podatke in jih sharni v nov slovar oblike {#1 : 4, #2 : 4,2 , ...}.
 
         slovar = {}
         for podatek in self.slovar_baz_podatkov:
-            mnozica_izibre = self.slovar_baz_podatkov[podatek]
+            mnozica_izibre = self.slovar_baz_podatkov[podatek] # nabor
 
-            if mnozica_izibre == "N1":
-                y = random.randint(1, 10)
-            elif mnozica_izibre == "N2":
-                y = random.randint(1, 50)
-            elif mnozica_izibre == "Q1":
-                stevec = random.randint(-10, 10)
+            if mnozica_izibre[0] == "N":
+                if int(mnozica_izibre[1]) <= 0:
+                    mnozica_izibre[1] == 1
+                y = random.randint(int(mnozica_izibre[1]), int(mnozica_izibre[2]))
+
+            elif mnozica_izibre[0] == "Q":
+                stevec = random.randint(int(mnozica_izibre[1]), int(mnozica_izibre[2]))
                 while stevec == 0: # zelo majhna verjetnost, da gre v neskončnost
-                    stevec = random.randint(-10, 10)
-                imenovalec = random.randint(1, 10)
+                    stevec = random.randint(int(mnozica_izibre[1]), int(mnozica_izibre[2]))
+                if int(mnozica_izibre[1]) <= 0:
+                    mnozica_izibre[1] == 1
+                imenovalec = random.randint(int(mnozica_izibre[1]), int(mnozica_izibre[2]))
                 y = Fraction(stevec, imenovalec)
-            elif mnozica_izibre == "Q2":
-                stevec = random.randint(-50, 50)
-                while stevec == 0: # zelo majhna verjetnost, da gre v neskončnost
-                    stevec = random.randint(-50, 50)
-                imenovalec = random.randint(1, 50)
-                y = Fraction(stevec, imenovalec)
-            elif mnozica_izibre == "R1":
-                y = round(random.uniform(-10, 10), 3)
+
+            elif mnozica_izibre[0] == "R":
+                y = round(random.uniform(int(mnozica_izibre[1]), int(mnozica_izibre[2])), 3)
                 while y == 0: #itak je skor nemogoče, ampak ok
-                    y = round(random.uniform(-10, 10), 3)
-            elif mnozica_izibre == "R2":
-                y = round(random.uniform(-50, 50), 3)
-                while y == 0: #itak je skor nemogoče, ampak ok
-                    y = round(random.uniform(-50, 50), 3)
+                    y = round(random.uniform(int(mnozica_izibre[1]), int(mnozica_izibre[2])), 3)
+
             slovar[podatek] = y
         return slovar  
         
@@ -250,13 +247,15 @@ class Test:
     def __init__(self, ucitelj, predmet, letnik, st_razlicic, st_nalog):
         self.predmet = predmet
         self.letnik = letnik
-
         self.ucitelj = ucitelj
+        
+        self.st_nalog = st_nalog        
+        self.st_razlicic = st_razlicic
     
         self.glava = self.ustvari_glavo_testa()
-        self.st_razlicic = st_razlicic
-        self.st_nalog = st_nalog        
         self.slovar_nalog = {i : Naloga(st_razlicic=st_razlicic) for i in range(st_nalog)}    
+
+        self.stanje = "NT"
 
     def ustvari_glavo_testa(self):
         return f"""
@@ -264,6 +263,15 @@ class Test:
         letnik: {self.letnik}
         avtor: {self.ucitelj}
         """
+
+    def posodobi_stanje(self):
+        self.stanje = "KT"
+        for i in self.slovar_nalog:
+            naloga = self.slovar_nalog[i]
+            if naloga.stanje == "NN":
+                self.stanje = "NT"
+            
+
 
     def v_slovar(self):
         slovar_nalog_v_slovarju =  {i : self.slovar_nalog[i].v_slovar() for i in range(self.st_nalog)}
@@ -273,7 +281,8 @@ class Test:
             "ucitelj" : self.ucitelj,
             "st_razlicic" : self.st_razlicic,
             "st_nalog" : self.st_nalog,
-            "slovar_nalog" : slovar_nalog_v_slovarju
+            "slovar_nalog" : slovar_nalog_v_slovarju,
+            "stanje" : self.stanje
         }
 
     @staticmethod
