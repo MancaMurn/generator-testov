@@ -7,9 +7,9 @@ Generator testov je namenjen sestavljanju preprostejših računskih nalog. Progr
 # Uporaba programa
 Ob vstopu v program sem sproti zapisovala navodila za uporabo programa, vendar bom tu dodala še kratkek povzetek:
 
-    1. V program se najprej prijavite oz. ragistrirati. 
-    2. Če želite ustvariti nov test kliknete gumb **ustvari nov test**. Znajdete se na strani, kjer morate v prazna polja vpisati osnovne podatke o testu, ki ga želite       ustvariti. Pomembno je, da v **število nalog** in **število učencev** napišete številko.
-    3. S kilkom na gumb **potrdi** vas program preusmeri na stran, kjer zapišete navodila nalog. Spremenljive podatke v navodilu označite z **#** in zaporedno številko        podatka. 
-    4. Ko navodilo potrdite s klikom na gumb **potrdi**, se vam prikaže še okence, kjer za vsak podatek izberete bazo (**N** za naravna števila, **Q** za racionalna in        **R** za realna števila) in zapišete formulo za izračun rešitev. V formuli uporabljajte iste spremenljivke kot v navodilu naloge.
-    5. Ko so vse naloge izpolnjene lahko pritinete na gumb **zaključi** in program vas preusmeri na stran, kjer si lahko naložite .docx datoteko za vsako različico            testa in datoteko z rešitvami vseh različic.
-    6. Dostopate lahko tudi do testov, ki ste jih že ustvarili s klikom na gumb **arhiv testov**. Tu so zbrani vsi končani in nedokončani test.
+V program se najprej prijavite oz. ragistrirati.
+Če želite ustvariti nov test kliknete gumb **ustvari nov test**. Znajdete se na strani, kjer morate v prazna polja vpisati osnovne podatke o testu, ki ga želite       ustvariti. Pomembno je, da v **število nalog** in **število učencev** napišete številko.
+S kilkom na gumb **potrdi** vas program preusmeri na stran, kjer zapišete navodila nalog. Spremenljive podatke v navodilu označite z **#** in zaporedno številko        podatka. 
+Ko navodilo potrdite s klikom na gumb **potrdi**, se vam prikaže še okence, kjer za vsak podatek izberete bazo (**N** za naravna števila, **Q** za racionalna in        **R** za realna števila) in zapišete formulo za izračun rešitev. V formuli uporabljajte iste spremenljivke kot v navodilu naloge.
+Ko so vse naloge izpolnjene lahko pritinete na gumb **zaključi** in program vas preusmeri na stran, kjer si lahko naložite .docx datoteko za vsako različico            testa in datoteko z rešitvami vseh različic.
+Dostopate lahko tudi do testov, ki ste jih že ustvarili s klikom na gumb **arhiv testov**. Tu so zbrani vsi končani in nedokončani test.
