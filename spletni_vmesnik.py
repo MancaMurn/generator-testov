@@ -1,4 +1,3 @@
-from os import error
 import bottle
 from model import *
 import docx
@@ -121,34 +120,33 @@ def uredi_podatke():
     index_testa = int(bottle.request.forms.getunicode("index_testa"))
     st_nalog = int(bottle.request.forms.getunicode("st_nalog"))
 
+    slovar_nalog = uporabnik.seznam_testov[index_testa].slovar_nalog
+    naloga = uporabnik.seznam_testov[index_testa].slovar_nalog[izpolnjena_naloga]
+    st_podatkov = naloga.st_podatkov
+
     formula_resitve = bottle.request.forms.getunicode("formula_resitve")
     if not formula_resitve:
         napaka_resitev = "Niste vnesli formule za rešitev!"
         return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=uporabnik.seznam_testov[index_testa].slovar_nalog, napaka=napaka_resitev)
+    # try:
+    # except SyntaxError:
+    #     napaka_resitev = "Formulo ste napisali narobe!"
+    #     return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=napaka_resitev)
 
-    st_podatkov = uporabnik.seznam_testov[index_testa].slovar_nalog[izpolnjena_naloga].st_podatkov
     podatki = {}
     for i in range(st_podatkov):
         b = bottle.request.forms.getunicode(f"answer{i+1}")
         z = bottle.request.forms.getunicode(f"answer{i+1}_zacetek")
         k = bottle.request.forms.getunicode(f"answer{i+1}_konec")
         podatki[f"#{i+1}"] = (b, z, k)
-
-    naloga = uporabnik.seznam_testov[index_testa].slovar_nalog[izpolnjena_naloga]
     naloga.spremeni_slovar_baz(podatki)
+
     naloga.spremeni_formulo(formula_resitve)
-    slovar_nalog = uporabnik.seznam_testov[index_testa].slovar_nalog
-    uporabnik.v_datoteko()
-
-    try:
-        naloga.ustvari_razlicice()
-    except error:
-        napaka_resitev = "Formulo ste napisali narobe!"
-        return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=napaka_resitev)
-
+    naloga.ustvari_razlicice()
     naloga.spremeni_stanje('KN')
-    uporabnik.seznam_testov[index_testa].posodobi_stanje()
-    return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=uporabnik.slovar_nalog, napaka = None)
+    # uporabnik.seznam_testov[index_testa].posodobi_stanje()
+    uporabnik.v_datoteko()
+    return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka = None)
 
 
 @bottle.post("/test/")
@@ -158,6 +156,7 @@ def test():
     index_testa = int(bottle.request.forms.getunicode("index_testa"))
 
     test = uporabnik.seznam_testov[index_testa]
+    test.posodobi_stanje()
     slovar_nalog = test.slovar_nalog
 
     dokument = docx.Document()
@@ -170,7 +169,7 @@ def test():
             resitev = razlicica.resitev                
             dokument.add_paragraph(f"učenec {j + 1}: {resitev}")
         dokument.add_paragraph()
-    dokument.save(f'/testi/{uporabnisko_ime}_{test.predmet}_{test.letnik}_resitve')
+    dokument.save(f'testi/{test.predmet}_{test.letnik}_resitve.docx')
         
     for i in range(test.st_razlicic):
         dokument = docx.Document()
@@ -180,13 +179,13 @@ def test():
             razlicica = seznam_razlicic[i]
             besedilo = razlicica.besedilo
 
-            dokument.add_heading(f"{j + 1}. naloga")
+            dokument.add_heading(f"{j + 1}. naloga", level = 3)
             dokument.add_paragraph(f"{besedilo}")
-            dokument.add_page_break()
+            dokument.add_paragraph()
 
-        dokument.save(f'/testi/{test.predmet}_{test.letnik}_ucenec{i + 1}.docx')
+        dokument.save(f'testi/{test.predmet}_{test.letnik}_ucenec{i + 1}.docx')
 
-    return bottle.template("test.html")
+    return bottle.template("test.html" , test=test, uporabnisko_ime=uporabnisko_ime)
 
 
 @bottle.get("/arhiv/")
@@ -208,6 +207,17 @@ def nedokoncan_test():
     slovar_nalog = uporabnik.seznam_testov[index_testa].slovar_nalog
 
     return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=None)
+
+
+@bottle.post("/koncan_test/")
+def koncan_test():
+    uporabnisko_ime = bottle.request.get_cookie(PISKOTEK_UPORABNISKO_IME, secret=SKRIVNOST)
+    uporabnik = Uporabnik.iz_datoteke(uporabnisko_ime)
+    index_testa = int(bottle.request.forms.getunicode("index_testa"))
+
+    test = uporabnik.seznam_testov[index_testa]
+
+    return bottle.template("test.html", test=test, uporabnisko_ime=uporabnisko_ime)
 
 @bottle.post("/odjava/")
 def odjava():

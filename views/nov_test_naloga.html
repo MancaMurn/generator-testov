@@ -18,7 +18,7 @@
                             <div class="block">
                                 <textarea class="textarea" name="besedilo" placeholder="Zapiši navodilo naloge."></textarea>
                             </div>
-                            if napaka == napaka_besedilo:
+                            % if napaka == "V besedilo niste vnesli nobenega spremenljivega podatka!":
                                 <p class="help is-danger">{{napaka}}</p>
                             % end
                             <input type="hidden" name="st_nalog" value="{{st_nalog}}">
@@ -105,7 +105,7 @@
                                 <div class="control">
                                     <input class="input" name="formula_resitve" type="text" placeholder="Zapiši formulo za rešitev naloge.">
                                 </div>
-                                % if napaka == napaka_formula:
+                                % if napaka == "Niste vnesli formule za rešitev!":
                                     <p class="help is-danger">{{napaka}}</p>
                                 % end
                             </div>

@@ -10,7 +10,7 @@
             </div>
         % else:
             <div class="block"> 
-                <form method="POST" action="/test/">
+                <form method="POST" action="/koncan_test/">
                     % for i in range(len(seznam_testov)):
                         % if seznam_testov[i].stanje == "KT":
                             <input type="hidden" name="index_testa" value="{{i}}">
