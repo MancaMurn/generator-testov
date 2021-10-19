@@ -1,40 +1,42 @@
 % rebase('base.html')
+    <form method="POST">
+        <div class="container">
+            <div class="column is-half is_centerd">
+                <div class="block">
+                    <h1 class="title is-2 has-text-primary">Osnovni podatki</h1>
+                </div>
+                <div class="block">
+                    Vpiši osnovne podatke, ki bodo vidni na vseh testih, in klikni gumb sestavi naloge. Vpisane podatke podrobno preveri, saj jih kasneje ne moreš spreminjati.
+                </div>
 
-            <form method="POST">
-                <div class="container">
-                    <div class="column is-half is_centerd">
-                        
-                            <div class="block">
-                            <h1 class="title is-2 has-text-primary">Osnovni podatki</h1>
-                            </div>
-                            <div class="block">
-                                Vpiši osnovne podatke, ki bodo vidni na vseh testih, in klikni gumb sestavi naloge. Vpisane podatke podrobno preveri, saj jih kasneje ne moreš spreminjati.
-                            </div>
-                            <div class="block">
-                                <ul> 
-                                    <li>Predmet:
-                                        <input class="input" name="predmet" type="text" placeholder="vpišite predmet, ki ga želite v naslovnici testa">
-                                    </li>
-                                    <li>Letnik:
-                                        <input class="input" name="letnik" type="text" placeholder="vpišite letnik, ki ga želite na naslovnici testa">
-                                    </li>
-                                    <li>Število učencev:
-                                        <input class="input" name="st_ucencev" type="text" placeholder="vpišite število učencev s številko">
-                                    </li>
-                                    <li>Število nalog:
-                                        <input class="input" name="st_nalog" type="text" placeholder="vpišite število nalog s številko">
-                                    </li>
-                                </ul>
-                            </div>
+                <div class="block">
+                    <ul> 
+                        <li>Predmet:
+                            <input class="input" name="predmet" type="text" placeholder="vpišite predmet, ki ga želite v naslovnici testa">
+                        </li>
+                        <li>Letnik:
+                            <input class="input" name="letnik" type="text" placeholder="vpišite letnik, ki ga želite na naslovnici testa">
+                        </li>
+                        <li>Število učencev:
+                            <input class="input" name="st_ucencev" type="text" placeholder="vpišite število učencev s številko">
+                        </li>
+                        <li>Število nalog:
+                            <input class="input" name="st_nalog" type="text" placeholder="vpišite število nalog s številko">
+                        </li>
+                    </ul>
+                </div>
+                % if napaka:
+                    <p class="help is-danger">{{napaka}}</p>
+                % end
                             
-                            <div class="control">
-                                <button class="button is-primary gumbki">
-                                    <strong>Sestavi naloge</strong> 
-                                </button>
-                            </div>    
-                    </div>
-                </div>   
-            </form>
+                <div class="control">
+                    <button class="button is-primary gumbki">
+                        <strong>Sestavi naloge</strong> 
+                    </button>
+                </div>    
+            </div>
+        </div>   
+    </form>
 
 
     

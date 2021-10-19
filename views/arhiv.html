@@ -10,7 +10,7 @@
         </div>
         % else:
         <div class="block"> 
-            <form method="GET" action="/test/">
+            <form method="POST" action="/test/">
                 % for index_testa in range(len(seznam_testov)):
                     % if seznam_testov[index_testa].stanje == "KT":
                         <input type="hidden" name="index_testa" value="{{index_testa}}">
@@ -26,14 +26,6 @@
                 % for i in range(len(seznam_testov)):
                     % if seznam_testov[i].stanje == "NT":
                             <input type="hidden" name="st_nalog" value="{{seznam_testov[i].st_nalog}}">
-                            % for j in seznam_testov[i].slovar_nalog:
-                                % if seznam_testov[i].slovar_nalog[j].stanje == "KN": 
-                                    % pass  
-                                % else:
-                                    <input type="hidden" name="izpolnjena_naloga" value="{{j}}">
-                                    % break
-                                % end
-                            % end
                             <input type="hidden" name="index_testa" value="{{i}}">
                             <button class="button is-large"><b>{{seznam_testov[i].predmet}}</b>, {{seznam_testov[i].letnik}}</button>
                     % end

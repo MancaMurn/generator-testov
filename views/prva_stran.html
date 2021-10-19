@@ -10,50 +10,47 @@
     </head>
     <body>
         <div class="container">
-
             <div class="columns is-centered">
                 <div class="column is-half">
-
-                <h1 class="subtitle is-1 has-text-centered gumbki">Generator testov</h1>
-                <div class="box has-background-light py-6 px-6">
-
-                    <h2 class="subtitle is-3">Prijava</h2>
-                    <p class="mg-large">
-                        
-                        <form action="/prijava/" method="POST">
-                            <div class="field">
-                                <label class="label is-light">Uporabniško ime</label>
-                                <div class="control has-icons-left">
-                                    <input class="input" name="uporabnisko_ime" type="text" placeholder="uporabniško ime">
-                                    <span class="icon is-small is-left">
-                                        <i class="fas fa-user"></i>
-                                    </span>
+                    <h1 class="subtitle is-1 has-text-centered gumbki">Generator testov</h1>
+                    
+                    <div class="box has-background-light py-6 px-6">
+                        <h2 class="subtitle is-3">Prijava</h2>
+                
+                        <p class="mg-large">
+                            <form action="/prijava/" method="POST">
+                                <div class="field">
+                                    <label class="label is-light">Uporabniško ime</label>
+                                    <div class="control has-icons-left">
+                                        <input class="input" name="uporabnisko_ime" type="text" placeholder="uporabniško ime">
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-user"></i>
+                                        </span>
+                                    </div>
+                                    % if napaka:
+                                        <p class="help is-danger">{{ napaka }}</p>
+                                    % end
                                 </div>
-                                % if napaka:
-                                <p class="help is-danger">{{ napaka }}</p>
-                                % end
-                            </div>
-                            <div class="field">
-                                <label class="label is-light">Geslo</label>
-                                <div class="control has-icons-left">
-                                    <input class="input" name="geslo" type="password" placeholder="geslo">
-                                    <span class="icon is-small is-left">
-                                        <i class="fas fa-lock"></i>
-                                    </span>
+                                <div class="field">
+                                    <label class="label is-light">Geslo</label>
+                                        <div class="control has-icons-left">
+                                            <input class="input" name="geslo" type="password" placeholder="geslo">
+                                            <span class="icon is-small is-left">
+                                                <i class="fas fa-lock"></i>
+                                            </span>
+                                        </div>
                                 </div>
-                            </div>
-                            <div class="field is-grouped">
-                                <div class="control">
-                                    <button class="button is-large is-fullwidth is-primary is-light gumbki">
-                                        <strong>Prijavi se</strong>
-                                    </button>
+                                <div class="field is-grouped">
+                                    <div class="control">
+                                        <button class="button is-large is-fullwidth is-primary is-light gumbki">
+                                            <strong>Prijavi se</strong>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
-                    </p>
-
-                </div>
-                    <p class="gumbki">
+                            </form>
+                        </p>
+                    </div>
+                    <p class="block">
                         Še nisi registriran? To lahko storiš s klikom na spodnji gumb.
                         <a class="button is-large is-fullwidth is-primary gumbki" href="/registracija/">
                             <strong>Registriraj se</strong>
@@ -63,4 +60,4 @@
             </div>
         </div>
     </body>    
-    </html>
+</html>

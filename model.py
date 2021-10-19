@@ -4,12 +4,6 @@ import json
 import hashlib
 from fractions import Fraction
 
-# NEDOKONCAN_TEST = "NT"
-# KONCAN_TEST = "KT"
-
-# NEDOKONCANA_NALOGA = "NN"
-# KONCANA_NALOGA = "KN"
-
 class Uporabnik:
     def __init__(self, ime, geslo, seznam_testov=None):
         self.uporabnisko_ime = ime
@@ -258,11 +252,7 @@ class Test:
         self.stanje = "NT"
 
     def ustvari_glavo_testa(self):
-        return f"""
-        predmet:{self.predmet}
-        letnik: {self.letnik}
-        avtor: {self.ucitelj}
-        """
+        return f"""{self.predmet}, {self.letnik}"""
 
     def posodobi_stanje(self):
         self.stanje = "KT"
@@ -293,8 +283,11 @@ class Test:
         st_razlicic = slovar["st_razlicic"]
         st_nalog = slovar["st_nalog"]
         slovar_nalog = slovar["slovar_nalog"]
+        # stanje = slovar["stanje"]
         
         test = Test(ucitelj, predmet, letnik, st_razlicic, st_nalog)
         test.slovar_nalog = {int(i) : Naloga.iz_slovarja(slovar_nalog[i]) for i in slovar_nalog}
+
+        test.posodobi_stanje()
 
         return test

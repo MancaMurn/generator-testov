@@ -1,5 +1,4 @@
-% rebase('base.html')
-        
+% rebase('base.html') 
     <div class="container">
         <div class="column is-three-fifths is_centerd"> 
             <h1 class="title is-2 has-text-primary">Naloge</h1>
@@ -11,119 +10,122 @@
                 </div>
             </div>
 
-
-
             % for i in range(st_nalog):
                 % if slovar_nalog[i].besedilo == "":
-                <div class="block">
-                    <h2 class="title is-3">{{i+1}}. naloga</h2>
-                    <form method="POST" action="/uredi_besedilo/">
-                        <div class="block">
-                            <textarea class="textarea" name="besedilo" placeholder="Zapiši navodilo naloge."></textarea>
-                        </div>
-                        <input type="hidden" name="st_nalog" value="{{st_nalog}}">
-                        <input type="hidden" name="izpolnjena_naloga" value="{{i}}">
-                        <input type="hidden" name="index_testa" value="{{index_testa}}">
-                        <div class="block">
-                            <button type="submit" class="button is-primary is-medium">
-                                Potrdi
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                % elif slovar_nalog[i].slovar_baz_podatkov == None or slovar_nalog[i].slovar_baz_podatkov == dict():
-                <div class="block">
-                    <h2 class="title is-3">{{i+1}}. naloga</h2>
-                    <textarea class="textarea has-background-grey-lighter" name="besedilo" readonly>{{slovar_nalog[i].besedilo}}</textarea>
-                </div>
-
-                <form method="POST" action="/uredi_podatke/">
-                    <section class="hero is-primary">
-                    <div class="hero-body">
-                        <div class="block">
-                            <h3 class="title is-4">Baze podatkov:</h3>
-                            Izberi množice števil, iz katerih bodo izbrani posamezni podatki v nalogi.
-                        </div>
-                        <div class="block">
+                    <div class="block">
+                        <h2 class="title is-3">{{i+1}}. naloga</h2>
+                        <form method="POST" action="/uredi_besedilo/">
+                            <div class="block">
+                                <textarea class="textarea" name="besedilo" placeholder="Zapiši navodilo naloge."></textarea>
+                            </div>
+                            if napaka == napaka_besedilo:
+                                <p class="help is-danger">{{napaka}}</p>
+                            % end
                             <input type="hidden" name="st_nalog" value="{{st_nalog}}">
                             <input type="hidden" name="izpolnjena_naloga" value="{{i}}">
                             <input type="hidden" name="index_testa" value="{{index_testa}}">
-                            <div class="content">
-                                <ul>
-                                    %for j in range(slovar_nalog[i].st_podatkov):
-                                    <li> <b>#{{j+1}}:</b>
-                                        množica števil:
-                                        <div class="select is-primary is-small">
-                                            <select name="answer{{j+1}}">
-                                                <option value="N">N</option>
-                                                <option value="Q">Q</option>
-                                                <option value="R">R</option>
-                                            </select>
-                                        </div>
-                                        začetek intervala:
-                                        <div class="select is-primary is-small">
-                                            <select name="answer{{j+1}}_zacetek">
-                                                <option value="-1000">-1000</option>
-                                                <option value="-100">-100</option>
-                                                <option value="-50">-50</option>
-                                                <option value="-20">-20</option>
-                                                <option value="-10">-10</option>
-                                                <option value="0">0</option>
-                                                <option value="10">10</option>
-                                                <option value="20">20</option>
-                                                <option value="50">50</option>
-                                                <option value="100">100</option>
-                                            </select>
-                                        </div>
-                                        konec intervala:
-                                        <div class="select is-primary is-small">
-                                            <select name="answer{{j+1}}_konec">
-                                                <option value="-100">-100</option>
-                                                <option value="-50">-50</option>
-                                                <option value="-20">-20</option>
-                                                <option value="-10">-10</option>
-                                                <option value="0">0</option>
-                                                <option value="10">10</option>
-                                                <option value="20">20</option>
-                                                <option value="50">50</option>
-                                                <option value="100">100</option>
-                                                <option value="1000">1000</option>
-                                            </select>
-                                        </div>
-                                    </li>
-                                    %end
-                                </ul>
+                            <div class="block">
+                                <button type="submit" class="button is-primary is-medium">
+                                    Potrdi
+                                </button>
                             </div>
-                        </div>
-                        
-                        <div class="block">
-                            <h3 class="title is-4">Zapiši formulo rešitve:</h3>
-                            Zapiši formulo rešitve, s spremenljivkami enakimi, kot v besedilu naloge. 
-                            <p>ZGLED: <i>#2 / #1</i></p> 
-                        </div>
-                        <div class="block">
-                            <div class="control">
-                                <input class="input" name="formula_resitve" type="text" placeholder="Zapiši formulo za rešitev naloge.">
-                            </div>
-                        </div>
-                        <div class="block">
-                            <button type="submit" class="button is-white is-medium">
-                                Shrani
-                            </button>
-                        </div>
+                        </form>
                     </div>
-                    </section>
-                </form>
+                % elif slovar_nalog[i].slovar_baz_podatkov == None or slovar_nalog[i].slovar_baz_podatkov == dict():
+                    <div class="block">
+                        <h2 class="title is-3">{{i+1}}. naloga</h2>
+                        <textarea class="textarea has-background-grey-lighter" name="besedilo" readonly>{{slovar_nalog[i].besedilo}}</textarea>
+                    </div>
+
+                    <form method="POST" action="/uredi_podatke/">
+                        <section class="hero is-primary">
+                        <div class="hero-body">
+                            <div class="block">
+                                <h3 class="title is-4">Baze podatkov:</h3>
+                                Izberi množice števil, iz katerih bodo izbrani posamezni podatki v nalogi.
+                            </div>
+                            <div class="block">
+                                <input type="hidden" name="st_nalog" value="{{st_nalog}}">
+                                <input type="hidden" name="izpolnjena_naloga" value="{{i}}">
+                                <input type="hidden" name="index_testa" value="{{index_testa}}">
+                                <div class="content">
+                                    <ul>
+                                    %for j in range(slovar_nalog[i].st_podatkov):
+                                        <li> <b>#{{j+1}}:</b>
+                                            množica števil:
+                                            <div class="select is-primary is-small">
+                                                <select name="answer{{j+1}}">
+                                                    <option value="N">N</option>
+                                                    <option value="Q">Q</option>
+                                                    <option value="R">R</option>
+                                                </select>
+                                            </div>
+                                            začetek intervala:
+                                            <div class="select is-primary is-small">
+                                                <select name="answer{{j+1}}_zacetek">
+                                                    <option value="-1000">-1000</option>
+                                                    <option value="-100">-100</option>
+                                                    <option value="-50">-50</option>
+                                                    <option value="-20">-20</option>
+                                                    <option value="-10">-10</option>
+                                                    <option value="0">0</option>
+                                                    <option value="10">10</option>
+                                                    <option value="20">20</option>
+                                                    <option value="50">50</option>
+                                                    <option value="100">100</option>
+                                                </select>
+                                            </div>
+                                            konec intervala:
+                                            <div class="select is-primary is-small">
+                                                <select name="answer{{j+1}}_konec">
+                                                    <option value="-100">-100</option>
+                                                    <option value="-50">-50</option>
+                                                    <option value="-20">-20</option>
+                                                    <option value="-10">-10</option>
+                                                    <option value="0">0</option>
+                                                    <option value="10">10</option>
+                                                    <option value="20">20</option>
+                                                    <option value="50">50</option>
+                                                    <option value="100">100</option>
+                                                    <option value="1000">1000</option>
+                                                </select>
+                                            </div>
+                                        </li>
+                                    %end
+                                    </ul>
+                                </div>
+                            </div>
+                        
+                            <div class="block">
+                                <h3 class="title is-4">Zapiši formulo rešitve:</h3>
+                                Zapiši formulo rešitve, s spremenljivkami enakimi, kot v besedilu naloge. 
+                                <p>ZGLED: <i>#2 / #1</i></p> 
+                            </div>
+                            <div class="block">
+                                <div class="control">
+                                    <input class="input" name="formula_resitve" type="text" placeholder="Zapiši formulo za rešitev naloge.">
+                                </div>
+                                % if napaka == napaka_formula:
+                                    <p class="help is-danger">{{napaka}}</p>
+                                % end
+                            </div>
+                            <div class="block">
+                                <button type="submit" class="button is-white is-medium">
+                                    Shrani
+                                </button>
+                            </div>
+                        </div>
+                        </section>
+                    </form>
                 % else:
-                <div class="block">
-                    <h2 class="title is-3">{{i+1}}. naloga</h2>
-                    <textarea class="textarea has-background-grey-lighter" name="besedilo" readonly>{{slovar_nalog[i].besedilo}}</textarea>
-                </div>
+                    <div class="block">
+                        <h2 class="title is-3">{{i+1}}. naloga</h2>
+                        <textarea class="textarea has-background-grey-lighter" name="besedilo" readonly>{{slovar_nalog[i].besedilo}}</textarea>
+                    </div>
                 % end                        
             % end
             
             % narisi_gumbek = True
-
             % for i in range(st_nalog):
                 % if not slovar_nalog[i].slovar_baz_podatkov:
                     <button class="button is-primary" title="Disabled button" disabled>Zaključi</button>
@@ -133,10 +135,10 @@
             % end
 
             % if narisi_gumbek == True:
-            <form method="POST" action="/test/">
-                <input type="hidden" name="index_testa" value="{{index_testa}}"> 
-                <button class="button is-primary" title="Disabled button">Zaključi</button>
-            </form>
+                <form method="POST" action="/test/">
+                    <input type="hidden" name="index_testa" value="{{index_testa}}"> 
+                    <button class="button is-primary" title="Disabled button">Zaključi</button>
+                </form>
             % end
         </div>
     </div> 
