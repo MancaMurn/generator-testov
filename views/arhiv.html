@@ -3,35 +3,35 @@
     <div class="column is-three-fifths is_centerd"> 
         <h1 class="title is-2 has-text-primary">Arhiv testov</h1>
         % if seznam_testov == []:
-        <div class="block">
-            <div class="has-text-primary">
-                <h1 class="title is-2 has-text-primary">Niste še ustvarili nobenega testa.</h1>
+            <div class="block">
+                <div class="has-text-primary">
+                    <h1 class="title is-2 has-text-primary">Niste še ustvarili nobenega testa.</h1>
+                </div>
             </div>
-        </div>
         % else:
-        <div class="block"> 
-            <form method="POST" action="/test/">
-                % for index_testa in range(len(seznam_testov)):
-                    % if seznam_testov[index_testa].stanje == "KT":
-                        <input type="hidden" name="index_testa" value="{{index_testa}}">
-                        <button class="button is-large is-primary is-outlined">{{seznam_testov[index_testa].predmet}}, {{seznam_testov[index_testa].letnik}}</button>
-                    % end
-                % end
-            </form>
-        </div>
-
-        <div class="block">
-            <h2 class="title is-3">Nedokončani testi:</h2>
-            <form method="POST" action="/nedokoncan_test/">
-                % for i in range(len(seznam_testov)):
-                    % if seznam_testov[i].stanje == "NT":
-                            <input type="hidden" name="st_nalog" value="{{seznam_testov[i].st_nalog}}">
+            <div class="block"> 
+                <form method="POST" action="/test/">
+                    % for i in range(len(seznam_testov)):
+                        % if seznam_testov[i].stanje == "KT":
                             <input type="hidden" name="index_testa" value="{{i}}">
-                            <button class="button is-large"><b>{{seznam_testov[i].predmet}}</b>, {{seznam_testov[i].letnik}}</button>
+                            <button class="button is-large is-primary is-outlined">{{seznam_testov[i].predmet}}, {{seznam_testov[i].letnik}}</button>
+                        % end
                     % end
-                % end
-            </form>
-        </div>
+                </form>
+            </div>
+
+            <div class="block">
+                <h2 class="title is-3">Nedokončani testi:</h2>
+                <form method="POST" action="/nedokoncan_test/">
+                    % for i in range(len(seznam_testov)):
+                        % if seznam_testov[i].stanje == "NT":
+                                <input type="hidden" name="st_nalog" value="{{seznam_testov[i].st_nalog}}">
+                                <input type="hidden" name="index_testa" value="{{i}}">
+                                <button class="button is-large"><b>{{seznam_testov[i].predmet}}</b>, {{seznam_testov[i].letnik}}</button>
+                        % end
+                    % end
+                </form>
+            </div>
         % end
     </div>
 </div>

@@ -101,6 +101,58 @@
                 }
             },
             "stanje": "NT"
+        },
+        {
+            "predmet": "Matematika",
+            "letnik": "1. letnik",
+            "ucitelj": "manca",
+            "st_razlicic": 8,
+            "st_nalog": 2,
+            "slovar_nalog": {
+                "0": {
+                    "st_razlicic": 8,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": [],
+                    "stanje": "NN"
+                },
+                "1": {
+                    "st_razlicic": 8,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": [],
+                    "stanje": "NN"
+                }
+            },
+            "stanje": "NT"
+        },
+        {
+            "predmet": "Matematika",
+            "letnik": "1. letnik",
+            "ucitelj": "manca",
+            "st_razlicic": 8,
+            "st_nalog": 2,
+            "slovar_nalog": {
+                "0": {
+                    "st_razlicic": 8,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": [],
+                    "stanje": "NN"
+                },
+                "1": {
+                    "st_razlicic": 8,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": [],
+                    "stanje": "NN"
+                }
+            },
+            "stanje": "NT"
         }
     ]
 }

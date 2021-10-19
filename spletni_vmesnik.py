@@ -1,6 +1,4 @@
-from inspect import indentsize
 from os import error
-from random import randint
 import bottle
 from model import *
 import docx
@@ -114,7 +112,6 @@ def uredi_besedilo():
     return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=None)
 
 
-
 @bottle.post("/uredi_podatke/")
 def uredi_podatke():
     uporabnisko_ime = bottle.request.get_cookie(PISKOTEK_UPORABNISKO_IME, secret=SKRIVNOST)
@@ -192,8 +189,6 @@ def test():
     return bottle.template("test.html")
 
 
-
-
 @bottle.get("/arhiv/")
 def arhiv_testov():
     uporabnisko_ime = bottle.request.get_cookie(PISKOTEK_UPORABNISKO_IME, secret=SKRIVNOST)
@@ -205,24 +200,30 @@ def arhiv_testov():
 @bottle.post("/nedokoncan_test/")
 def nedokoncan_test():
     uporabnisko_ime = bottle.request.get_cookie(PISKOTEK_UPORABNISKO_IME, secret=SKRIVNOST)
-    uporabnik = Uporabnik.iz_datoteke(uporabnisko_ime)
-    seznam_testov = uporabnik.seznam_testov
+    uporabnik = Uporabnik.iz_datoteke(uporabnisko_ime) 
 
     # izpolnjena_naloga = int(bottle.request.forms.getunicode("izpolnjena_naloga"))
     index_testa = int(bottle.request.forms.getunicode("index_testa"))
     st_nalog = int(bottle.request.forms.getunicode("st_nalog"))
-    
+    slovar_nalog = uporabnik.seznam_testov[index_testa].slovar_nalog
 
-    return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=seznam_testov[index_testa].slovar_nalog)
+    return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=None)
 
 @bottle.post("/odjava/")
 def odjava():
     bottle.response.delete_cookie(PISKOTEK_UPORABNISKO_IME)
     bottle.redirect("/")
     
+
 @bottle.route('/static/<filename:path>')
 def send_static(filename):
     return bottle.static_file(filename, root='static')
+
+
+@bottle.route('/testi/<filename:path>')
+def send_static(filename):
+    return bottle.static_file(filename, root='testi')
+
 
 if __name__ == "__main__":
     bottle.run(debug=True, reloader=True)
