@@ -172,7 +172,7 @@ def test():
             resitev = razlicica.resitev                
             dokument.add_paragraph(f"učenec {j + 1}: {resitev}")
         dokument.add_paragraph()
-    dokument.save(f'testi/{test.predmet}_{test.letnik}_resitve.docx')
+    dokument.save(f'testi/{uporabnisko_ime}_{test.predmet}_{test.letnik}_resitve.docx')
         
     for i in range(test.st_razlicic):
         dokument = docx.Document()
@@ -187,7 +187,7 @@ def test():
             dokument.add_paragraph(f"{besedilo}")
             dokument.add_paragraph()
             dokument.add_paragraph()
-        dokument.save(f'testi/{test.predmet}_{test.letnik}_ucenec{i + 1}.docx')
+        dokument.save(f'testi/{uporabnisko_ime}_{test.predmet}_{test.letnik}_ucenec{i + 1}.docx')
 
     return bottle.template("test.html" , test=test, uporabnisko_ime=uporabnisko_ime)
 
@@ -222,6 +222,7 @@ def koncan_test():
     test = uporabnik.seznam_testov[index_testa]
 
     return bottle.template("test.html", test=test, uporabnisko_ime=uporabnisko_ime)
+
 
 @bottle.post("/odjava/")
 def odjava():
