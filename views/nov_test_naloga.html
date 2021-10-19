@@ -95,6 +95,9 @@
                                     </ul>
                                 </div>
                             </div>
+                            % if napaka == "Narobe ste izbrali interval!":
+                                <p class="help is-danger">{{napaka}}</p>
+                            % end
                         
                             <div class="block">
                                 <h3 class="title is-4">Zapiši formulo rešitve:</h3>

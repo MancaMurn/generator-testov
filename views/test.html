@@ -5,11 +5,11 @@
     
     <ul>
         <li>
-            <a href="testi/{{uporabnisko_ime}}_{{test.predmet}}_{{test.letnik}}_resitve.docx" download>DOWNLOAD rešitve</a> 
+            <a href="/testi/{{uporabnisko_ime}}_{{test.predmet}}_{{test.letnik}}_resitve.docx" download>DOWNLOAD rešitve</a> 
         </li>    
         %for i in range(test.st_razlicic):
         <li>
-            <a href="testi/{{uporabnisko_ime}}_{{test.predmet}}_{{test.letnik}}_ucenec{{i + 1}}.docx" download>DOWNLOAD učenec {{i + 1}}</a>
+            <a href="/testi/{{uporabnisko_ime}}_{{test.predmet}}_{{test.letnik}}_ucenec{{i + 1}}.docx" download>DOWNLOAD učenec {{i + 1}}</a>
         </li>
         %end
     </ul>

@@ -124,27 +124,36 @@ def uredi_podatke():
     naloga = uporabnik.seznam_testov[index_testa].slovar_nalog[izpolnjena_naloga]
     st_podatkov = naloga.st_podatkov
 
-    formula_resitve = bottle.request.forms.getunicode("formula_resitve")
-    if not formula_resitve:
-        napaka_resitev = "Niste vnesli formule za rešitev!"
-        return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=napaka_resitev)
-    try:
-      naloga.spremeni_formulo(formula_resitve)
-      naloga.ustvari_razlicice()
-    except NameError or SyntaxError or IndexError:
-        napaka_resitev = "Formulo ste napisali narobe!"
-        return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=napaka_resitev)
-
     podatki = {}
     for i in range(st_podatkov):
         b = bottle.request.forms.getunicode(f"answer{i+1}")
         z = bottle.request.forms.getunicode(f"answer{i+1}_zacetek")
         k = bottle.request.forms.getunicode(f"answer{i+1}_konec")
         podatki[f"#{i+1}"] = (b, z, k)
+
+        if int(k) <= int(z):
+            napaka_resitev = "Narobe ste izbrali interval!"
+            return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=napaka_resitev)
+        elif b == "N" and int(z) <= 0:
+            napaka_resitev = "Narobe ste izbrali interval!"
+            return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=napaka_resitev)
     naloga.spremeni_slovar_baz(podatki)
 
-    # naloga.spremeni_formulo(formula_resitve)
-    # naloga.ustvari_razlicice()
+    formula_resitve = bottle.request.forms.getunicode("formula_resitve")
+    if not formula_resitve or formula_resitve.count('#') == 0:
+        napaka_resitev = "Niste vnesli formule za rešitev!"
+        return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=napaka_resitev)
+    else:
+        # naloga.spremeni_formulo(formula_resitve)
+        # naloga.ustvari_razlicice()
+        try:
+            naloga.spremeni_formulo(formula_resitve)
+            naloga.ustvari_razlicice()
+        except SyntaxError:
+            napaka_resitve = "Formulo ste napisali narobe!"
+            return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=napaka_resitve)
+
+
     naloga.spremeni_stanje('KN')
     uporabnik.seznam_testov[index_testa].posodobi_stanje()
     uporabnik.v_datoteko()
