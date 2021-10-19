@@ -161,9 +161,20 @@ def test():
     index_testa = int(bottle.request.forms.getunicode("index_testa"))
 
     test = uporabnik.seznam_testov[index_testa]
-    test.posodobi_stanje()
     slovar_nalog = test.slovar_nalog
 
+    dokument = docx.Document()
+    dokument.add_heading(f"Rešitve {test.predmet}, {test.letnik}")
+    for i in slovar_nalog:
+        naloga = slovar_nalog[i]
+        dokument.add_heading(f"{i + 1}. naloga")
+        for j in range(test.st_razlicic):
+            razlicica = naloga.seznam_razlicic[j]
+            resitev = razlicica.resitev                
+            dokument.add_paragraph(f"učenec {j + 1}: {resitev}")
+        dokument.add_paragraph()
+    dokument.save(f'/testi/{uporabnisko_ime}_{test.predmet}_{test.letnik}_resitve')
+        
     for i in range(test.st_razlicic):
         dokument = docx.Document()
         dokument.add_heading(test.glava, level = 1)
@@ -172,11 +183,11 @@ def test():
             razlicica = seznam_razlicic[i]
             besedilo = razlicica.besedilo
 
-            dokument.add_heading(f"{j}. naloga")
+            dokument.add_heading(f"{j + 1}. naloga")
             dokument.add_paragraph(f"{besedilo}")
             dokument.add_page_break()
 
-        dokument.save(f'{index_testa}_ucenec_{i}.docx')
+        dokument.save(f'/testi/{test.predmet}_{test.letnik}_ucenec{i + 1}.docx')
 
     return bottle.template("test.html")
 
