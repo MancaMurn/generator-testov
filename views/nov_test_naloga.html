@@ -31,7 +31,7 @@
                             </div>
                         </form>
                     </div>
-                % elif slovar_nalog[i].slovar_baz_podatkov == None or slovar_nalog[i].slovar_baz_podatkov == dict():
+                % elif slovar_nalog[i].slovar_baz_podatkov == dict() or slovar_nalog[i].formula == "":
                     <div class="block">
                         <h2 class="title is-3">{{i+1}}. naloga</h2>
                         <textarea class="textarea has-background-grey-lighter" name="besedilo" readonly>{{slovar_nalog[i].besedilo}}</textarea>
@@ -105,7 +105,7 @@
                                 <div class="control">
                                     <input class="input" name="formula_resitve" type="text" placeholder="Zapiši formulo za rešitev naloge.">
                                 </div>
-                                % if napaka == "Niste vnesli formule za rešitev!":
+                                % if napaka == "Niste vnesli formule za rešitev!" or napaka == "Formulo ste napisali narobe!":
                                     <p class="help is-danger">{{napaka}}</p>
                                 % end
                             </div>

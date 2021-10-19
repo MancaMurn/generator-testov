@@ -127,11 +127,13 @@ def uredi_podatke():
     formula_resitve = bottle.request.forms.getunicode("formula_resitve")
     if not formula_resitve:
         napaka_resitev = "Niste vnesli formule za rešitev!"
-        return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=uporabnik.seznam_testov[index_testa].slovar_nalog, napaka=napaka_resitev)
-    # try:
-    # except SyntaxError:
-    #     napaka_resitev = "Formulo ste napisali narobe!"
-    #     return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=napaka_resitev)
+        return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=napaka_resitev)
+    try:
+      naloga.spremeni_formulo(formula_resitve)
+      naloga.ustvari_razlicice()
+    except NameError or SyntaxError or IndexError:
+        napaka_resitev = "Formulo ste napisali narobe!"
+        return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=napaka_resitev)
 
     podatki = {}
     for i in range(st_podatkov):
@@ -141,10 +143,10 @@ def uredi_podatke():
         podatki[f"#{i+1}"] = (b, z, k)
     naloga.spremeni_slovar_baz(podatki)
 
-    naloga.spremeni_formulo(formula_resitve)
-    naloga.ustvari_razlicice()
+    # naloga.spremeni_formulo(formula_resitve)
+    # naloga.ustvari_razlicice()
     naloga.spremeni_stanje('KN')
-    # uporabnik.seznam_testov[index_testa].posodobi_stanje()
+    uporabnik.seznam_testov[index_testa].posodobi_stanje()
     uporabnik.v_datoteko()
     return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka = None)
 
@@ -158,12 +160,13 @@ def test():
     test = uporabnik.seznam_testov[index_testa]
     test.posodobi_stanje()
     slovar_nalog = test.slovar_nalog
+    uporabnik.v_datoteko()
 
     dokument = docx.Document()
-    dokument.add_heading(f"Rešitve {test.predmet}, {test.letnik}")
+    dokument.add_heading(f"Rešitve {test.predmet}, {test.letnik}", level = 1)
     for i in slovar_nalog:
         naloga = slovar_nalog[i]
-        dokument.add_heading(f"{i + 1}. naloga")
+        dokument.add_heading(f"{i + 1}. naloga", level = 2)
         for j in range(test.st_razlicic):
             razlicica = naloga.seznam_razlicic[j]
             resitev = razlicica.resitev                
@@ -174,6 +177,7 @@ def test():
     for i in range(test.st_razlicic):
         dokument = docx.Document()
         dokument.add_heading(test.glava, level = 1)
+        dokument.add_heading(f"učenec {i + 1}")
         for j in slovar_nalog:
             seznam_razlicic = slovar_nalog[j].seznam_razlicic
             razlicica = seznam_razlicic[i]
@@ -182,7 +186,7 @@ def test():
             dokument.add_heading(f"{j + 1}. naloga", level = 3)
             dokument.add_paragraph(f"{besedilo}")
             dokument.add_paragraph()
-
+            dokument.add_paragraph()
         dokument.save(f'testi/{test.predmet}_{test.letnik}_ucenec{i + 1}.docx')
 
     return bottle.template("test.html" , test=test, uporabnisko_ime=uporabnisko_ime)

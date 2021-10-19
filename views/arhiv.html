@@ -14,7 +14,7 @@
                     % for i in range(len(seznam_testov)):
                         % if seznam_testov[i].stanje == "KT":
                             <input type="hidden" name="index_testa" value="{{i}}">
-                            <button class="button is-large is-primary is-outlined">{{seznam_testov[i].predmet}}, {{seznam_testov[i].letnik}}</button>
+                            <button class="button is-large is-primary is-outlined gumbek">{{seznam_testov[i].predmet}}, {{seznam_testov[i].letnik}}</button>
                         % end
                     % end
                 </form>
@@ -27,7 +27,7 @@
                         % if seznam_testov[i].stanje == "NT":
                                 <input type="hidden" name="st_nalog" value="{{seznam_testov[i].st_nalog}}">
                                 <input type="hidden" name="index_testa" value="{{i}}">
-                                <button class="button is-large"><b>{{seznam_testov[i].predmet}}</b>, {{seznam_testov[i].letnik}}</button>
+                                <button class="button is-large gumbek"><b>{{seznam_testov[i].predmet}}</b>, {{seznam_testov[i].letnik}}</button>
                         % end
                     % end
                 </form>
