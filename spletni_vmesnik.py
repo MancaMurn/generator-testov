@@ -1,4 +1,5 @@
 from inspect import indentsize
+from os import error
 from random import randint
 import bottle
 from model import *
@@ -6,9 +7,6 @@ import docx
 
 PISKOTEK_UPORABNISKO_IME = "uporabnisko_ime"
 SKRIVNOST = "to je ena skrivnost"
-
-x = None
-y = None
 
 @bottle.get("/")
 def zacetna_stran():
@@ -20,7 +18,7 @@ def prijava_post():
     uporabnisko_ime = bottle.request.forms.getunicode("uporabnisko_ime")
     geslo_v_cistopisu = bottle.request.forms.getunicode("geslo")
     if not uporabnisko_ime:
-        return bottle.template("registracija.html", napaka="Vnesi uporabniško ime!")
+        return bottle.template("prva_stran.html", napaka="Vnesi uporabniško ime!")
     else:
         try:
             Uporabnik.prijava(uporabnisko_ime, geslo_v_cistopisu)
@@ -40,6 +38,7 @@ def pozdrav_uporabnika():
 def registracija():
     return bottle.template("registracija.html", napake=[])
 
+
 @bottle.post("/registracija/")
 def registracija_post():
     uporabnisko_ime = bottle.request.forms.getunicode("uporabnisko_ime")
@@ -47,6 +46,8 @@ def registracija_post():
     
     if not uporabnisko_ime:
         return bottle.template("registracija.html", napake="Vnesi uporabniško ime!")
+    elif not geslo_v_cistopisu:
+        return bottle.template("registracija.html", napake="Vnesi geslo!")
     else:
         try:
             Uporabnik.registracija(uporabnisko_ime, geslo_v_cistopisu)
@@ -58,7 +59,8 @@ def registracija_post():
 
 @bottle.get("/nov_test_osnova/")
 def nov_test__osnova():
-    return bottle.template("nov_test_osnova.html")
+    return bottle.template("nov_test_osnova.html", napaka = None)
+
 
 @bottle.post("/nov_test_osnova/")
 def glava_testa():
@@ -67,14 +69,28 @@ def glava_testa():
 
     predmet = bottle.request.forms.getunicode("predmet")
     letnik = bottle.request.forms.getunicode("letnik")
-    st_ucencev = int(bottle.request.forms.getunicode("st_ucencev"))
-    st_nalog = int(bottle.request.forms.getunicode("st_nalog"))
+
+    if not predmet or not letnik:
+        napaka = "Izpolniti morate vsa polja!"
+        return bottle.template("nov_test_osnova.html", napaka = napaka)
+
+    try:
+        st_ucencev = int(bottle.request.forms.getunicode("st_ucencev"))
+        st_nalog = int(bottle.request.forms.getunicode("st_nalog"))
+    except ValueError:
+        napaka = "Število učencev in število nalog morata biti številki!"
+        return bottle.template("nov_test_osnova.html", napaka = napaka)
+    
+    if not st_nalog or not st_ucencev:
+        napaka = "Število učencev in število nalog ne smeta biti enaki nič!"
+        return bottle.template("nov_test_osnova.html", napaka = napaka)
 
     index_testa = uporabnik.nov_test(Test(uporabnik.uporabnisko_ime, predmet, letnik, st_ucencev, st_nalog))
+    slovar_nalog = uporabnik.seznam_testov[index_testa].slovar_nalog
+
     uporabnik.v_datoteko()
 
-    return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=uporabnik.seznam_testov[index_testa].slovar_nalog)
-
+    return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=None)
 
 
 @bottle.post("/uredi_besedilo/")
@@ -87,10 +103,15 @@ def uredi_besedilo():
     st_nalog = int(bottle.request.forms.getunicode("st_nalog"))
     besedilo = bottle.request.forms.getunicode("besedilo")
 
+    if besedilo.count("#") == 0:
+        napaka_besedilo = "V besedilo niste vnesli nobenega spremenljivega podatka!"
+        return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=uporabnik.seznam_testov[index_testa].slovar_nalog, napaka=napaka_besedilo)
+
     uporabnik.seznam_testov[index_testa].slovar_nalog[izpolnjena_naloga].spremeni_besedilo(besedilo)
+    slovar_nalog = uporabnik.seznam_testov[index_testa].slovar_nalog
     uporabnik.v_datoteko()
 
-    return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=uporabnik.seznam_testov[index_testa].slovar_nalog)
+    return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=None)
 
 
 
@@ -104,6 +125,9 @@ def uredi_podatke():
     st_nalog = int(bottle.request.forms.getunicode("st_nalog"))
 
     formula_resitve = bottle.request.forms.getunicode("formula_resitve")
+    if not formula_resitve:
+        napaka_resitev = "Niste vnesli formule za rešitev!"
+        return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=uporabnik.seznam_testov[index_testa].slovar_nalog, napaka=napaka_resitev)
 
     st_podatkov = uporabnik.seznam_testov[index_testa].slovar_nalog[izpolnjena_naloga].st_podatkov
     podatki = {}
@@ -116,13 +140,18 @@ def uredi_podatke():
     naloga = uporabnik.seznam_testov[index_testa].slovar_nalog[izpolnjena_naloga]
     naloga.spremeni_slovar_baz(podatki)
     naloga.spremeni_formulo(formula_resitve)
-    naloga.spremeni_stanje('KN')
-    naloga.ustvari_razlicice()
-    
-    uporabnik.seznam_testov[index_testa].posodobi_stanje()
+    slovar_nalog = uporabnik.seznam_testov[index_testa].slovar_nalog
     uporabnik.v_datoteko()
 
-    return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=uporabnik.seznam_testov[index_testa].slovar_nalog)
+    try:
+        naloga.ustvari_razlicice()
+    except error:
+        napaka_resitev = "Formulo ste napisali narobe!"
+        return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=napaka_resitev)
+
+    naloga.spremeni_stanje('KN')
+    uporabnik.seznam_testov[index_testa].posodobi_stanje()
+    return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=uporabnik.slovar_nalog, napaka = None)
 
 
 @bottle.post("/test/")
@@ -135,24 +164,13 @@ def test():
     test.posodobi_stanje()
     slovar_nalog = test.slovar_nalog
 
-    # for i in range(test.st_razlicic):
-    #     #za vsakega učenca naredimo svojo json datoteko s testom.
-    #     with open(f"{index_testa}_ucenec_{i}.json", "w") as datoteka:
-    #         json.dump(test.glava, datoteka, ensure_ascii=True, indent=4)
-    #         for j in test.slovar_nalog:
-    #             naloga = test.slovar_nalog[j]
-    #             json.dump(naloga.seznam_razlicic[i].v_slovar(), datoteka, ensure_ascii=True, indent=4)
-
     for i in range(test.st_razlicic):
         dokument = docx.Document()
         dokument.add_heading(test.glava, level = 1)
         for j in slovar_nalog:
             seznam_razlicic = slovar_nalog[j].seznam_razlicic
-            print(seznam_razlicic)
             razlicica = seznam_razlicic[i]
-            print(razlicica)
-            besedilo = razlicica.besedilo()
-            print(besedilo)
+            besedilo = razlicica.besedilo
 
             dokument.add_heading(f"{j}. naloga")
             dokument.add_paragraph(f"{besedilo}")
