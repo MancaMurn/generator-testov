@@ -494,10 +494,62 @@
                 "1": {
                     "st_razlicic": 10,
                     "besedilo": "#1 + #2",
-                    "formula_resitve": "",
-                    "slovar_baz_podatkov": {},
-                    "seznam_razlicic": [],
-                    "stanje": "NN"
+                    "formula_resitve": "#1",
+                    "slovar_baz_podatkov": {
+                        "#1": [
+                            "Z",
+                            "-1000",
+                            "0"
+                        ],
+                        "#2": [
+                            "Z",
+                            "-1000",
+                            "-100"
+                        ]
+                    },
+                    "seznam_razlicic": [
+                        {
+                            "besedilo": "-883 + -205",
+                            "resitev": -883
+                        },
+                        {
+                            "besedilo": "-389 + -815",
+                            "resitev": -389
+                        },
+                        {
+                            "besedilo": "-588 + -609",
+                            "resitev": -588
+                        },
+                        {
+                            "besedilo": "-407 + -352",
+                            "resitev": -407
+                        },
+                        {
+                            "besedilo": "-826 + -281",
+                            "resitev": -826
+                        },
+                        {
+                            "besedilo": "-924 + -518",
+                            "resitev": -924
+                        },
+                        {
+                            "besedilo": "-643 + -109",
+                            "resitev": -643
+                        },
+                        {
+                            "besedilo": "-184 + -708",
+                            "resitev": -184
+                        },
+                        {
+                            "besedilo": "-110 + -756",
+                            "resitev": -110
+                        },
+                        {
+                            "besedilo": "-859 + -680",
+                            "resitev": -859
+                        }
+                    ],
+                    "stanje": "KN"
                 },
                 "2": {
                     "st_razlicic": 10,
@@ -509,6 +561,169 @@
                 }
             },
             "stanje": "NT"
+        },
+        {
+            "predmet": "Mat",
+            "letnik": "1",
+            "ucitelj": "Katarina Murn",
+            "st_razlicic": 1,
+            "st_nalog": 1,
+            "slovar_nalog": {
+                "0": {
+                    "st_razlicic": 1,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": [],
+                    "stanje": "NN"
+                }
+            },
+            "stanje": "NT"
+        },
+        {
+            "predmet": "kem",
+            "letnik": "3",
+            "ucitelj": "Katarina Murn",
+            "st_razlicic": 4,
+            "st_nalog": 5,
+            "slovar_nalog": {
+                "0": {
+                    "st_razlicic": 4,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": [],
+                    "stanje": "NN"
+                },
+                "1": {
+                    "st_razlicic": 4,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": [],
+                    "stanje": "NN"
+                },
+                "2": {
+                    "st_razlicic": 4,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": [],
+                    "stanje": "NN"
+                },
+                "3": {
+                    "st_razlicic": 4,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": [],
+                    "stanje": "NN"
+                },
+                "4": {
+                    "st_razlicic": 4,
+                    "besedilo": "",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": [],
+                    "stanje": "NN"
+                }
+            },
+            "stanje": "NT"
+        },
+        {
+            "predmet": "Fizika",
+            "letnik": "8. razred",
+            "ucitelj": "Katarina Murn",
+            "st_razlicic": 5,
+            "st_nalog": 2,
+            "slovar_nalog": {
+                "0": {
+                    "st_razlicic": 5,
+                    "besedilo": "Avto je v #1 s prevozil #2 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                    "formula_resitve": "#2 / (#1 * (60 ** 2))",
+                    "slovar_baz_podatkov": {
+                        "#1": [
+                            "R",
+                            "100",
+                            "1000"
+                        ],
+                        "#2": [
+                            "R",
+                            "0",
+                            "10"
+                        ]
+                    },
+                    "seznam_razlicic": [
+                        {
+                            "besedilo": "Avto je v 528.904 s prevozil 7.725 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": 0.0
+                        },
+                        {
+                            "besedilo": "Avto je v 681.813 s prevozil 1.265 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": 0.0
+                        },
+                        {
+                            "besedilo": "Avto je v 603.74 s prevozil 6.675 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": 0.0
+                        },
+                        {
+                            "besedilo": "Avto je v 188.49 s prevozil 4.032 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": 0.0
+                        },
+                        {
+                            "besedilo": "Avto je v 580.014 s prevozil 4.551 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": 0.0
+                        }
+                    ],
+                    "stanje": "KN"
+                },
+                "1": {
+                    "st_razlicic": 5,
+                    "besedilo": "Nejc ima #1 nabojev v svoji pi\u0161toli. Med strelsko tekmo jih je porabil #2 %. Koliko denarja je porabil, \u010de vsak naboj stane #3 \u20ac? ",
+                    "formula_resitve": "#3 * ( #1 * ( #2 / 100 ) )",
+                    "slovar_baz_podatkov": {
+                        "#1": [
+                            "Z",
+                            "20",
+                            "50"
+                        ],
+                        "#2": [
+                            "Z",
+                            "50",
+                            "100"
+                        ],
+                        "#3": [
+                            "R",
+                            "0",
+                            "10"
+                        ]
+                    },
+                    "seznam_razlicic": [
+                        {
+                            "besedilo": "Nejc ima 38 nabojev v svoji pi\u0161toli. Med strelsko tekmo jih je porabil 96 %. Koliko denarja je porabil, \u010de vsak naboj stane 3.197 \u20ac? ",
+                            "resitev": 116.627
+                        },
+                        {
+                            "besedilo": "Nejc ima 41 nabojev v svoji pi\u0161toli. Med strelsko tekmo jih je porabil 93 %. Koliko denarja je porabil, \u010de vsak naboj stane 5.044 \u20ac? ",
+                            "resitev": 192.328
+                        },
+                        {
+                            "besedilo": "Nejc ima 28 nabojev v svoji pi\u0161toli. Med strelsko tekmo jih je porabil 97 %. Koliko denarja je porabil, \u010de vsak naboj stane 6.931 \u20ac? ",
+                            "resitev": 188.246
+                        },
+                        {
+                            "besedilo": "Nejc ima 45 nabojev v svoji pi\u0161toli. Med strelsko tekmo jih je porabil 80 %. Koliko denarja je porabil, \u010de vsak naboj stane 3.667 \u20ac? ",
+                            "resitev": 132.012
+                        },
+                        {
+                            "besedilo": "Nejc ima 39 nabojev v svoji pi\u0161toli. Med strelsko tekmo jih je porabil 71 %. Koliko denarja je porabil, \u010de vsak naboj stane 7.31 \u20ac? ",
+                            "resitev": 202.414
+                        }
+                    ],
+                    "stanje": "KN"
+                }
+            },
+            "stanje": "KT"
         }
     ]
 }

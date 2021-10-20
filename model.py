@@ -208,12 +208,10 @@ class Naloga:
                 stevec = random.randint(int(mnozica_izbire[1]), int(mnozica_izbire[2]))
                 while stevec == 0: # zelo majhna verjetnost, da gre v neskončnost
                     stevec = random.randint(int(mnozica_izbire[1]), int(mnozica_izbire[2]))
-                
-                imenovalec = random.randint(int(mnozica_izbire[1], int(mnozica_izbire[2]))
+                imenovalec = random.randint(int(mnozica_izbire[1]), int(mnozica_izbire[2]))
                 while imenovalec == 0:
                     imenovalec = random.randint(int(mnozica_izbire[1]), int(mnozica_izbire[2]))
-                
-                # y = Fraction(stevec, imenovalec)
+                y = Fraction(stevec, imenovalec)
 
             elif mnozica_izbire[0] == "R":
                 y = round(random.uniform(int(mnozica_izbire[1]), int(mnozica_izbire[2])), 3)

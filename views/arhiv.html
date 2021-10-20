@@ -13,8 +13,10 @@
                 <form method="POST" action="/koncan_test/">
                     % for i in range(len(seznam_testov)):
                         % if seznam_testov[i].stanje == "KT":
-                            <input type="hidden" name="index_testa" value="{{i}}">
-                            <button class="button is-large is-primary is-outlined gumbek">{{seznam_testov[i].predmet}}, {{seznam_testov[i].letnik}}</button>
+                            <div class="block">
+                                <input type="hidden" name="index_testa" value="{{i}}">
+                                <button class="button is-large is-primary is-outlined gumbek">{{seznam_testov[i].predmet}}, {{seznam_testov[i].letnik}}</button>
+                            </div>
                         % end
                     % end
                 </form>
@@ -25,9 +27,11 @@
                 <form method="POST" action="/nedokoncan_test/">
                     % for i in range(len(seznam_testov)):
                         % if seznam_testov[i].stanje == "NT":
+                            <div class="block">
                                 <input type="hidden" name="st_nalog" value="{{seznam_testov[i].st_nalog}}">
                                 <input type="hidden" name="index_testa" value="{{i}}">
                                 <button class="button is-large gumbek"><b>{{seznam_testov[i].predmet}}</b>, {{seznam_testov[i].letnik}}</button>
+                            </div>
                         % end
                     % end
                 </form>
