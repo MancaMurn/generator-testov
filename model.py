@@ -197,28 +197,28 @@ class Naloga:
 
         slovar = {}
         for podatek in self.slovar_baz_podatkov:
-            mnozica_izibre = self.slovar_baz_podatkov[podatek] # nabor
+            mnozica_izbire = self.slovar_baz_podatkov[podatek] # nabor
 
-            if mnozica_izibre[0] == "N":
-                if int(mnozica_izibre[1]) <= 0:
-                    y = random.randint(1, int(mnozica_izibre[2]))
-                else:
-                    y = random.randint(int(mnozica_izibre[1]), int(mnozica_izibre[2]))
+            if mnozica_izbire[0] == "Z":
+                    y = random.randint(int(mnozica_izbire[1]), int(mnozica_izbire[2]))
+                    while y == 0: # zelo majhna verjetnost, da gre v neskončnost
+                        y = random.randint(int(mnozica_izbire[1]), int(mnozica_izbire[2]))
 
-            elif mnozica_izibre[0] == "Q":
-                stevec = random.randint(int(mnozica_izibre[1]), int(mnozica_izibre[2]))
+            elif mnozica_izbire[0] == "Q":
+                stevec = random.randint(int(mnozica_izbire[1]), int(mnozica_izbire[2]))
                 while stevec == 0: # zelo majhna verjetnost, da gre v neskončnost
-                    stevec = random.randint(int(mnozica_izibre[1]), int(mnozica_izibre[2]))
-                if int(mnozica_izibre[1]) <= 0:
-                    imenovalec = random.randint(1, int(mnozica_izibre[2]))
-                else:
-                    imenovalec = random.randint(int(mnozica_izibre[1]), int(mnozica_izibre[2]))
-                y = Fraction(stevec, imenovalec)
+                    stevec = random.randint(int(mnozica_izbire[1]), int(mnozica_izbire[2]))
+                
+                imenovalec = random.randint(int(mnozica_izbire[1], int(mnozica_izbire[2]))
+                while imenovalec == 0:
+                    imenovalec = random.randint(int(mnozica_izbire[1]), int(mnozica_izbire[2]))
+                
+                # y = Fraction(stevec, imenovalec)
 
-            elif mnozica_izibre[0] == "R":
-                y = round(random.uniform(int(mnozica_izibre[1]), int(mnozica_izibre[2])), 3)
+            elif mnozica_izbire[0] == "R":
+                y = round(random.uniform(int(mnozica_izbire[1]), int(mnozica_izbire[2])), 3)
                 while y == 0: #itak je skor nemogoče, ampak ok
-                    y = round(random.uniform(int(mnozica_izibre[1]), int(mnozica_izibre[2])), 3)
+                    y = round(random.uniform(int(mnozica_izbire[1]), int(mnozica_izbire[2])), 3)
 
             slovar[podatek] = y
         return slovar  
@@ -248,7 +248,7 @@ class Naloga:
 
 
 class Test:
-    def __init__(self, ucitelj, predmet, letnik, st_razlicic, st_nalog):
+    def __init__(self, ucitelj, predmet, letnik, st_razlicic, st_nalog, stanje = None):
         self.predmet = predmet
         self.letnik = letnik
         self.ucitelj = ucitelj
@@ -259,7 +259,10 @@ class Test:
         self.glava = self.ustvari_glavo_testa()
         self.slovar_nalog = {i : Naloga(st_razlicic=st_razlicic) for i in range(st_nalog)}    
 
-        self.stanje = "NT"
+        if stanje:
+            self.stanje = stanje
+        else:
+            self.stanje = "NT"
 
 
     def v_slovar(self):
@@ -282,10 +285,10 @@ class Test:
         st_razlicic = slovar["st_razlicic"]
         st_nalog = slovar["st_nalog"]
         slovar_nalog = slovar["slovar_nalog"]
+        stanje = slovar["stanje"]
         
-        test = Test(ucitelj, predmet, letnik, st_razlicic, st_nalog)
+        test = Test(ucitelj, predmet, letnik, st_razlicic, st_nalog, stanje)
         test.slovar_nalog = {int(i) : Naloga.iz_slovarja(slovar_nalog[i]) for i in slovar_nalog}
-        test.posodobi_stanje()
         return test
 
     def ustvari_glavo_testa(self):
