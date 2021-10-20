@@ -170,6 +170,18 @@ class Naloga:
     def spremeni_besedilo(self, novo_besedilo):
         self.besedilo = novo_besedilo
         self.st_podatkov = self.besedilo.count("#")
+    
+    @staticmethod
+    def preveri_besedilo(besedilo):
+        st_podatkov = besedilo.count("#")
+        for i in range(st_podatkov):
+            stevec = i + 1
+            index = besedilo.index("#")
+            if besedilo[index + 1] != str(stevec):
+                return False
+            else:
+                besedilo = besedilo[(index + 1):]
+        return True
 
     def spremeni_formulo(self, formula):
         self.formula = formula

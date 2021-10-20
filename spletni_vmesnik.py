@@ -100,12 +100,18 @@ def uredi_besedilo():
     st_nalog = int(bottle.request.forms.getunicode("st_nalog"))
     besedilo = bottle.request.forms.getunicode("besedilo")
 
+    slovar_nalog = uporabnik.seznam_testov[index_testa].slovar_nalog
+    naloga = slovar_nalog[izpolnjena_naloga]
+
     if besedilo.count("#") == 0:
         napaka_besedilo = "V besedilo niste vnesli nobenega spremenljivega podatka!"
-        return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=uporabnik.seznam_testov[index_testa].slovar_nalog, napaka=napaka_besedilo)
+        return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=napaka_besedilo)
 
-    uporabnik.seznam_testov[index_testa].slovar_nalog[izpolnjena_naloga].spremeni_besedilo(besedilo)
-    slovar_nalog = uporabnik.seznam_testov[index_testa].slovar_nalog
+    if not naloga.preveri_besedilo(besedilo):
+        napaka_besedilo = "Besedilo ste napisali narobe! Podatke oštevilčite z naravnimi števili po vrsti!"
+        return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=napaka_besedilo)
+    
+    naloga.spremeni_besedilo(besedilo)
     uporabnik.v_datoteko()
 
     return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=None)

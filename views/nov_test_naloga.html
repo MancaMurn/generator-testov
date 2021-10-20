@@ -18,7 +18,7 @@
                             <div class="block">
                                 <textarea class="textarea" name="besedilo" placeholder="Zapiši navodilo naloge."></textarea>
                             </div>
-                            % if napaka == "V besedilo niste vnesli nobenega spremenljivega podatka!":
+                            % if napaka == "V besedilo niste vnesli nobenega spremenljivega podatka!" or napaka == "Besedilo ste napisali narobe! Podatke oštevilčite z naravnimi števili po vrsti!":
                                 <p class="help is-danger">{{napaka}}</p>
                             % end
                             <input type="hidden" name="st_nalog" value="{{st_nalog}}">
