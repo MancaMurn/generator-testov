@@ -1,0 +1,428 @@
+{
+    "uporabnisko_ime": "Katarina Murn",
+    "zasifrirano_geslo": "743346453$bacef12a623938c6accd96c46404f38c3d7ecf3e1c105eaf98d89ab6a72793f34a5695e2e65c8c4f2a629b88c1ac413e362e575a967184c8c3031401d0c55d5d",
+    "seznam_testov": [
+        {
+            "predmet": "Matematika",
+            "letnik": "8. razred",
+            "ucitelj": "Katarina Murn",
+            "st_razlicic": 13,
+            "st_nalog": 4,
+            "slovar_nalog": {
+                "0": {
+                    "st_razlicic": 13,
+                    "besedilo": "Izra\u010dunaj vsoto notranjih kotov v #1-kotniku.",
+                    "formula_resitve": "(#1 - 2) * 180",
+                    "slovar_baz_podatkov": {
+                        "#1": [
+                            "N",
+                            "10",
+                            "20"
+                        ]
+                    },
+                    "seznam_razlicic": [
+                        {
+                            "besedilo": "Izra\u010dunaj vsoto notranjih kotov v 20-kotniku.",
+                            "resitev": 3240
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj vsoto notranjih kotov v 12-kotniku.",
+                            "resitev": 1800
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj vsoto notranjih kotov v 19-kotniku.",
+                            "resitev": 3060
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj vsoto notranjih kotov v 14-kotniku.",
+                            "resitev": 2160
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj vsoto notranjih kotov v 18-kotniku.",
+                            "resitev": 2880
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj vsoto notranjih kotov v 10-kotniku.",
+                            "resitev": 1440
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj vsoto notranjih kotov v 10-kotniku.",
+                            "resitev": 1440
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj vsoto notranjih kotov v 11-kotniku.",
+                            "resitev": 1620
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj vsoto notranjih kotov v 13-kotniku.",
+                            "resitev": 1980
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj vsoto notranjih kotov v 13-kotniku.",
+                            "resitev": 1980
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj vsoto notranjih kotov v 18-kotniku.",
+                            "resitev": 2880
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj vsoto notranjih kotov v 11-kotniku.",
+                            "resitev": 1620
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj vsoto notranjih kotov v 16-kotniku.",
+                            "resitev": 2520
+                        }
+                    ],
+                    "stanje": "KN"
+                },
+                "1": {
+                    "st_razlicic": 13,
+                    "besedilo": "Izra\u010dunaj velikost notranjega kota v pravilnem #1-kotniku.",
+                    "formula_resitve": "360 / #1",
+                    "slovar_baz_podatkov": {
+                        "#1": [
+                            "N",
+                            "10",
+                            "20"
+                        ]
+                    },
+                    "seznam_razlicic": [
+                        {
+                            "besedilo": "Izra\u010dunaj velikost notranjega kota v pravilnem 12-kotniku.",
+                            "resitev": 30.0
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj velikost notranjega kota v pravilnem 15-kotniku.",
+                            "resitev": 24.0
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj velikost notranjega kota v pravilnem 15-kotniku.",
+                            "resitev": 24.0
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj velikost notranjega kota v pravilnem 17-kotniku.",
+                            "resitev": 21.176
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj velikost notranjega kota v pravilnem 19-kotniku.",
+                            "resitev": 18.947
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj velikost notranjega kota v pravilnem 19-kotniku.",
+                            "resitev": 18.947
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj velikost notranjega kota v pravilnem 17-kotniku.",
+                            "resitev": 21.176
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj velikost notranjega kota v pravilnem 14-kotniku.",
+                            "resitev": 25.714
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj velikost notranjega kota v pravilnem 14-kotniku.",
+                            "resitev": 25.714
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj velikost notranjega kota v pravilnem 13-kotniku.",
+                            "resitev": 27.692
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj velikost notranjega kota v pravilnem 12-kotniku.",
+                            "resitev": 30.0
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj velikost notranjega kota v pravilnem 12-kotniku.",
+                            "resitev": 30.0
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj velikost notranjega kota v pravilnem 15-kotniku.",
+                            "resitev": 24.0
+                        }
+                    ],
+                    "stanje": "KN"
+                },
+                "2": {
+                    "st_razlicic": 13,
+                    "besedilo": "Izra\u010dunaj.\r\n \r\n( #1 - ( #2 )) - ( #3 + #4 ) =",
+                    "formula_resitve": "( #1 - ( #2 )) - ( #3 + #4 )",
+                    "slovar_baz_podatkov": {
+                        "#1": [
+                            "Q",
+                            "-10",
+                            "10"
+                        ],
+                        "#2": [
+                            "Q",
+                            "-20",
+                            "10"
+                        ],
+                        "#3": [
+                            "Q",
+                            "-10",
+                            "20"
+                        ],
+                        "#4": [
+                            "N",
+                            "0",
+                            "20"
+                        ]
+                    },
+                    "seznam_razlicic": [
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( -1 - ( 1/12 )) - ( 1/4 + 14 ) =",
+                            "resitev": -15.333
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( -5/4 - ( 3/4 )) - ( 19/15 + 18 ) =",
+                            "resitev": -21.267
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( -7/8 - ( 17/11 )) - ( 17/15 + 10 ) =",
+                            "resitev": -13.554
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( -1 - ( 9/20 )) - ( -2/5 + 2 ) =",
+                            "resitev": -3.05
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( 7/6 - ( 13/18 )) - ( 3/4 + 10 ) =",
+                            "resitev": -10.306
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( -5/4 - ( 5/2 )) - ( 5/6 + 19 ) =",
+                            "resitev": -23.583
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( 2 - ( 4 )) - ( 2/3 + 10 ) =",
+                            "resitev": -12.667
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( 10 - ( 3 )) - ( -5/4 + 15 ) =",
+                            "resitev": -6.75
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( 5/2 - ( 19/12 )) - ( -3/19 + 13 ) =",
+                            "resitev": -11.925
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( 2 - ( 1 )) - ( 2/7 + 11 ) =",
+                            "resitev": -10.286
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( 9/2 - ( 9/11 )) - ( 16/17 + 5 ) =",
+                            "resitev": -2.259
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( 4/7 - ( 10/3 )) - ( 9/11 + 18 ) =",
+                            "resitev": -21.58
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( 3/8 - ( 13/18 )) - ( 15/2 + 10 ) =",
+                            "resitev": -17.847
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( 3/2 - ( 3/14 )) - ( 5/2 + 2 ) =",
+                            "resitev": -3.214
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( -2 - ( -2 )) - ( 8/7 + 6 ) =",
+                            "resitev": -7.143
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( -10/3 - ( -3/2 )) - ( -3/11 + 4 ) =",
+                            "resitev": -5.561
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( 3/2 - ( 3/5 )) - ( 7/8 + 8 ) =",
+                            "resitev": -7.975
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( -1 - ( 10 )) - ( -5/8 + 1 ) =",
+                            "resitev": -11.375
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( -1/10 - ( 5/8 )) - ( -2/13 + 10 ) =",
+                            "resitev": -10.571
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( 10/7 - ( -5/18 )) - ( -2/5 + 10 ) =",
+                            "resitev": -7.894
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( -9/8 - ( -5/13 )) - ( -7 + 4 ) =",
+                            "resitev": 2.26
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( -4 - ( 17/16 )) - ( -7/20 + 7 ) =",
+                            "resitev": -11.713
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( 3 - ( -9/17 )) - ( 3 + 14 ) =",
+                            "resitev": -13.471
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( -3/4 - ( 11/4 )) - ( 9/17 + 12 ) =",
+                            "resitev": -16.029
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( -6/7 - ( -4/13 )) - ( 3 + 10 ) =",
+                            "resitev": -13.549
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( -9/5 - ( -5/7 )) - ( 1/6 + 6 ) =",
+                            "resitev": -7.252
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( -4/3 - ( 5/2 )) - ( -1/14 + 20 ) =",
+                            "resitev": -23.762
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( -4/3 - ( -19 )) - ( -2/7 + 10 ) =",
+                            "resitev": 7.952
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( 3/2 - ( -9 )) - ( 2/3 + 9 ) =",
+                            "resitev": 0.833
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( -2 - ( -11 )) - ( 4/11 + 6 ) =",
+                            "resitev": 2.636
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( -3/2 - ( -5/9 )) - ( 9 + 3 ) =",
+                            "resitev": -12.944
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( -1/5 - ( -17/3 )) - ( 3/5 + 19 ) =",
+                            "resitev": -14.133
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( 9/4 - ( -17/2 )) - ( 7/6 + 18 ) =",
+                            "resitev": -8.417
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( -1/5 - ( -1/4 )) - ( 6/13 + 9 ) =",
+                            "resitev": -9.412
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( -3 - ( -17/5 )) - ( -5/3 + 14 ) =",
+                            "resitev": -11.933
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( 3/2 - ( -19/4 )) - ( 5/9 + 5 ) =",
+                            "resitev": 0.694
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( -1/5 - ( -2/5 )) - ( 7/3 + 9 ) =",
+                            "resitev": -11.133
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( -10/7 - ( 3 )) - ( -4/5 + 11 ) =",
+                            "resitev": -14.629
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n \r\n( 5/9 - ( -3 )) - ( 5/4 + 8 ) =",
+                            "resitev": -5.694
+                        }
+                    ],
+                    "stanje": "KN"
+                },
+                "3": {
+                    "st_razlicic": 13,
+                    "besedilo": "Izra\u010dunaj.\r\n\r\n#1 - ( #2 - ( #3 - #4 ) + #5 ) - #6 =",
+                    "formula_resitve": "#1 - ( #3 - ( #4 - #5 ) + #6 ) ",
+                    "slovar_baz_podatkov": {
+                        "#1": [
+                            "N",
+                            "0",
+                            "100"
+                        ],
+                        "#2": [
+                            "N",
+                            "10",
+                            "50"
+                        ],
+                        "#3": [
+                            "N",
+                            "20",
+                            "50"
+                        ],
+                        "#4": [
+                            "N",
+                            "0",
+                            "20"
+                        ],
+                        "#5": [
+                            "N",
+                            "50",
+                            "100"
+                        ],
+                        "#6": [
+                            "N",
+                            "0",
+                            "1000"
+                        ]
+                    },
+                    "seznam_razlicic": [
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n53 - ( 41 - ( 7 - 56 ) + 679 ) - #7 =",
+                            "resitev": -716
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n96 - ( 45 - ( 14 - 72 ) + 676 ) - #7 =",
+                            "resitev": -683
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n32 - ( 34 - ( 10 - 71 ) + 42 ) - #7 =",
+                            "resitev": -105
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n73 - ( 20 - ( 6 - 93 ) + 679 ) - #7 =",
+                            "resitev": -713
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n70 - ( 27 - ( 4 - 53 ) + 70 ) - #7 =",
+                            "resitev": -76
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n42 - ( 26 - ( 5 - 76 ) + 210 ) - #7 =",
+                            "resitev": -265
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n69 - ( 32 - ( 12 - 94 ) + 33 ) - #7 =",
+                            "resitev": -78
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n33 - ( 50 - ( 15 - 89 ) + 412 ) - #7 =",
+                            "resitev": -503
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n59 - ( 47 - ( 4 - 51 ) + 683 ) - #7 =",
+                            "resitev": -718
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n14 - ( 35 - ( 15 - 98 ) + 115 ) - #7 =",
+                            "resitev": -219
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n65 - ( 39 - ( 17 - 53 ) + 17 ) - #7 =",
+                            "resitev": -27
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n88 - ( 22 - ( 7 - 74 ) + 191 ) - #7 =",
+                            "resitev": -192
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n40 - ( 26 - ( 14 - 74 ) + 300 ) - #7 =",
+                            "resitev": -346
+                        }
+                    ],
+                    "stanje": "KN"
+                }
+            },
+            "stanje": "KT"
+        }
+    ]
+}

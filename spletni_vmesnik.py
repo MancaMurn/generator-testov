@@ -134,7 +134,7 @@ def uredi_podatke():
         if int(k) <= int(z):
             napaka_resitev = "Narobe ste izbrali interval!"
             return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=napaka_resitev)
-        elif b == "N" and int(z) <= 0:
+        elif b == "N" and int(z) < 0:
             napaka_resitev = "Narobe ste izbrali interval!"
             return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=napaka_resitev)
     naloga.spremeni_slovar_baz(podatki)
@@ -144,15 +144,14 @@ def uredi_podatke():
         napaka_resitev = "Niste vnesli formule za rešitev!"
         return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=napaka_resitev)
     else:
-        # naloga.spremeni_formulo(formula_resitve)
-        # naloga.ustvari_razlicice()
-        try:
-            naloga.spremeni_formulo(formula_resitve)
-            naloga.ustvari_razlicice()
-        except SyntaxError:
-            napaka_resitve = "Formulo ste napisali narobe!"
-            return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=napaka_resitve)
-
+        naloga.spremeni_formulo(formula_resitve)
+        naloga.ustvari_razlicice()
+        # try:
+        #     naloga.spremeni_formulo(formula_resitve)
+        #     naloga.ustvari_razlicice()
+        # except SyntaxError:
+        #     napaka_resitve = "Formulo ste napisali narobe!"
+        #     return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=napaka_resitve)
 
     naloga.spremeni_stanje('KN')
     uporabnik.seznam_testov[index_testa].posodobi_stanje()
