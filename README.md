@@ -13,7 +13,7 @@ V program se najprej prijavite oz. ragistrirati.
 
 S kilkom na gumb **potrdi** vas program preusmeri na stran, kjer zapišete navodila nalog. Spremenljive podatke v navodilu označite z **#** in zaporedno številko        podatka. 
 
-Ko navodilo potrdite s klikom na gumb **potrdi**, se vam prikaže še okence, kjer za vsak podatek izberete bazo (**$$\mathbb{N}$$** za naravna števila, **$$\mathbb{Q}$$** za racionalna in $$\mathbb{R}$$ za realna števila) in zapišete formulo za izračun rešitev. V formuli uporabljajte iste spremenljivke kot v navodilu naloge.
+Ko navodilo potrdite s klikom na gumb **potrdi**, se vam prikaže še okence, kjer za vsak podatek izberete bazo (**N** za naravna števila, **Q** za racionalna in **R** za realna števila) in zapišete formulo za izračun rešitev. V formuli uporabljajte iste spremenljivke kot v navodilu naloge.
 
 Ko so vse naloge izpolnjene lahko pritinete na gumb **zaključi** in program vas preusmeri na stran, kjer si lahko naložite .docx datoteko za vsako različico            testa in datoteko z rešitvami vseh različic.
 
