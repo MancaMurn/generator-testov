@@ -140,9 +140,6 @@ def uredi_podatke():
         if int(k) <= int(z):
             napaka_resitev = "Narobe ste izbrali interval!"
             return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=napaka_resitev)
-        elif b == "N" and int(z) < 0:
-            napaka_resitev = "Narobe ste izbrali interval!"
-            return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=napaka_resitev)
     naloga.spremeni_slovar_baz(podatki)
 
     formula_resitve = bottle.request.forms.getunicode("formula_resitve")
@@ -160,7 +157,6 @@ def uredi_podatke():
         #     return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=napaka_resitve)
 
     naloga.spremeni_stanje('KN')
-    uporabnik.seznam_testov[index_testa].posodobi_stanje()
     uporabnik.v_datoteko()
     return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka = None)
 
@@ -172,8 +168,8 @@ def test():
     index_testa = int(bottle.request.forms.getunicode("index_testa"))
 
     test = uporabnik.seznam_testov[index_testa]
-    test.posodobi_stanje()
     slovar_nalog = test.slovar_nalog
+    test.posodobi_stanje()
     uporabnik.v_datoteko()
 
     dokument = docx.Document()

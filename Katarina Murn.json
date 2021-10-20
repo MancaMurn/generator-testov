@@ -332,63 +332,175 @@
                 "3": {
                     "st_razlicic": 13,
                     "besedilo": "Izra\u010dunaj.\r\n\r\n#1 - ( #2 - ( #3 - #4 ) + #5 ) - #6 =",
-                    "formula_resitve": "",
-                    "slovar_baz_podatkov": {},
-                    "seznam_razlicic": [],
-                    "stanje": "NN"
+                    "formula_resitve": "#1 - ( #2 - ( #3 - #4 ) + #5 ) - #6",
+                    "slovar_baz_podatkov": {
+                        "#1": [
+                            "Q",
+                            "-10",
+                            "10"
+                        ],
+                        "#2": [
+                            "Q",
+                            "-10",
+                            "10"
+                        ],
+                        "#3": [
+                            "Q",
+                            "-10",
+                            "10"
+                        ],
+                        "#4": [
+                            "N",
+                            "0",
+                            "100"
+                        ],
+                        "#5": [
+                            "N",
+                            "0",
+                            "50"
+                        ],
+                        "#6": [
+                            "N",
+                            "0",
+                            "20"
+                        ]
+                    },
+                    "seznam_razlicic": [
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n1/2 - ( 1 - ( -1/7 - 44 ) + 47 ) - 3 =",
+                            "resitev": -94.643
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n-4/5 - ( -1 - ( 1/5 - 95 ) + 20 ) - 13 =",
+                            "resitev": -127.6
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n-3 - ( 5 - ( 1/5 - 62 ) + 45 ) - 20 =",
+                            "resitev": -134.8
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n-8 - ( 10/3 - ( -6/5 - 23 ) + 3 ) - 20 =",
+                            "resitev": -58.533
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n-2/9 - ( -3/5 - ( -2 - 23 ) + 28 ) - 8 =",
+                            "resitev": -60.622
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n-1/5 - ( 4/7 - ( 5/6 - 74 ) + 8 ) - 15 =",
+                            "resitev": -96.938
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n5/4 - ( 9/8 - ( -9/4 - 97 ) + 17 ) - 7 =",
+                            "resitev": -123.125
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n1 - ( -5/3 - ( 1/7 - 28 ) + 34 ) - 15 =",
+                            "resitev": -74.19
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n1/2 - ( 1 - ( 9/7 - 11 ) + 33 ) - 13 =",
+                            "resitev": -56.214
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n-1/10 - ( 1/3 - ( -2/5 - 83 ) + 14 ) - 14 =",
+                            "resitev": -111.833
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n-3/2 - ( -3/5 - ( 3/4 - 69 ) + 29 ) - 5 =",
+                            "resitev": -103.15
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n7/4 - ( 1 - ( -10/3 - 11 ) + 32 ) - 17 =",
+                            "resitev": -62.583
+                        },
+                        {
+                            "besedilo": "Izra\u010dunaj.\r\n\r\n-1 - ( 1 - ( 1 - 53 ) + 49 ) - 13 =",
+                            "resitev": -116
+                        }
+                    ],
+                    "stanje": "KN"
                 }
             },
-            "stanje": "NT"
+            "stanje": "KT"
         },
         {
             "predmet": "Matematika",
             "letnik": "6. razred",
             "ucitelj": "Katarina Murn",
-            "st_razlicic": 5,
-            "st_nalog": 2,
+            "st_razlicic": 10,
+            "st_nalog": 3,
             "slovar_nalog": {
                 "0": {
-                    "st_razlicic": 5,
-                    "besedilo": "Avto je v #1 s prevozil #2 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?\r\n",
-                    "formula_resitve": "#2",
+                    "st_razlicic": 10,
+                    "besedilo": "Avto je v #1 s prevozil #2 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                    "formula_resitve": "#1",
                     "slovar_baz_podatkov": {
                         "#1": [
-                            "R",
+                            "Z",
                             "-10",
                             "0"
                         ],
                         "#2": [
-                            "R",
-                            "-1000",
-                            "-100"
+                            "Z",
+                            "10",
+                            "20"
                         ]
                     },
                     "seznam_razlicic": [
                         {
-                            "besedilo": "Avto je v -1.085 s prevozil -658.649 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?\r\n",
-                            "resitev": -658.649
+                            "besedilo": "Avto je v -6 s prevozil 16 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": -6
                         },
                         {
-                            "besedilo": "Avto je v -4.506 s prevozil -650.877 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?\r\n",
-                            "resitev": -650.877
+                            "besedilo": "Avto je v -3 s prevozil 13 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": -3
                         },
                         {
-                            "besedilo": "Avto je v -9.713 s prevozil -913.549 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?\r\n",
-                            "resitev": -913.549
+                            "besedilo": "Avto je v -4 s prevozil 10 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": -4
                         },
                         {
-                            "besedilo": "Avto je v -5.703 s prevozil -587.924 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?\r\n",
-                            "resitev": -587.924
+                            "besedilo": "Avto je v -9 s prevozil 11 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": -9
                         },
                         {
-                            "besedilo": "Avto je v -4.546 s prevozil -780.641 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?\r\n",
-                            "resitev": -780.641
+                            "besedilo": "Avto je v -9 s prevozil 14 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": -9
+                        },
+                        {
+                            "besedilo": "Avto je v -7 s prevozil 16 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": -7
+                        },
+                        {
+                            "besedilo": "Avto je v -10 s prevozil 10 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": -10
+                        },
+                        {
+                            "besedilo": "Avto je v -6 s prevozil 18 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": -6
+                        },
+                        {
+                            "besedilo": "Avto je v -5 s prevozil 12 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": -5
+                        },
+                        {
+                            "besedilo": "Avto je v -7 s prevozil 13 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": -7
                         }
                     ],
                     "stanje": "KN"
                 },
                 "1": {
-                    "st_razlicic": 5,
+                    "st_razlicic": 10,
+                    "besedilo": "#1 + #2",
+                    "formula_resitve": "",
+                    "slovar_baz_podatkov": {},
+                    "seznam_razlicic": [],
+                    "stanje": "NN"
+                },
+                "2": {
+                    "st_razlicic": 10,
                     "besedilo": "",
                     "formula_resitve": "",
                     "slovar_baz_podatkov": {},
