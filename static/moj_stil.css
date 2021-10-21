@@ -2,3 +2,13 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.link {   
+    text-decoration: none;
+    color: black;
+}
+
+.link:hover {
+    text-decoration: none;
+    color:   #00d1b2;
+}
