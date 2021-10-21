@@ -4,9 +4,11 @@ Ta projekt je nastal kot projektna naloga pri predmetu Uvod v programiranje, na 
 
 Generator testov je namenjen sestavljanju preprostejših računskih nalog. Program generira poljubno število različic, poljubno število nalog.
 
-# Uporaba programa
-Ob vstopu v program sem sproti zapisovala navodila za uporabo programa, vendar bom tu dodala še kratkek povzetek:
+# Kako začeti
+Na računaniku potrebujete python knjižnici bottle in docx.
+Klonirajte repozitorij z git clone in zaženite spletni_vmesnik.py. Spletna stran se vam bo pokazala na naslovu http://127.0.0.1:8080/.
 
+# Uporaba programa
 V program se najprej prijavite oz. ragistrirati.
 
 Če želite ustvariti nov test kliknete gumb **ustvari nov test**. Znajdete se na strani, kjer morate v prazna polja vpisati osnovne podatke o testu, ki ga želite       ustvariti. Pomembno je, da v **število nalog** in **število učencev** napišete številko.
