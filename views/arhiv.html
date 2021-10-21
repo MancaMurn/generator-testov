@@ -11,14 +11,26 @@
         % else:
                 % for i in range(len(seznam_testov)):
                     % if seznam_testov[i].stanje == "KT":
-                        <div class="block">
-                            <form method="POST" action="/koncan_test/">
-                                <div class="block">
-                                    <input type="hidden" name="index_testa" value="{{i}}">
-                                    <button class="button is-large is-primary is-outlined gumbek">{{seznam_testov[i].predmet}}, {{seznam_testov[i].letnik}}</button>
+                            <div class="block">
+                                <div class="columns">
+                                    <div class="column is-1">
+                                        <form method="POST" action="/izbrisi_test/">
+                                            <input type="hidden" name="index_testa" value="{{i}}">
+                                            <button class="button is-rounded is-danger is-outlined">
+                                                <span class="icon is-small">
+                                                    <i class="fas fa-times"></i>
+                                                </span>
+                                            </button>
+                                        </form>
+                                    </div>
+                                    <div class="column">
+                                        <form method="POST" action="/koncan_test/">
+                                            <input type="hidden" name="index_testa" value="{{i}}">
+                                            <button class="button is-large is-primary is-outlined">{{seznam_testov[i].predmet}}, {{seznam_testov[i].letnik}}</button>
+                                        </form>
+                                    </div>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
                     % end
                 % end
 
@@ -27,11 +39,25 @@
                     % for i in range(len(seznam_testov)):
                         % if seznam_testov[i].stanje == "NT":
                         <div class="block">
-                            <form method="POST" action="/nedokoncan_test/">
-                                    <input type="hidden" name="st_nalog" value="{{seznam_testov[i].st_nalog}}">
-                                    <input type="hidden" name="index_testa" value="{{i}}">
-                                    <button class="button is-large gumbek"><b>{{seznam_testov[i].predmet}}</b>, {{seznam_testov[i].letnik}}</button>
-                            </form>
+                            <div class="columns">
+                                <div class="column is-1">
+                                    <form method="POST" action="/izbrisi_test/">
+                                        <input type="hidden" name="index_testa" value="{{i}}">
+                                        <button class="button is-rounded is-danger is-outlined">
+                                            <span class="icon is-small">
+                                                <i class="fas fa-times"></i>
+                                            </span>
+                                        </button>
+                                    </form>
+                                </div>
+                                <div class="column">
+                                    <form method="POST" action="/nedokoncan_test/">
+                                        <input type="hidden" name="st_nalog" value="{{seznam_testov[i].st_nalog}}">
+                                        <input type="hidden" name="index_testa" value="{{i}}">
+                                        <button class="button is-large"><b>{{seznam_testov[i].predmet}}</b>, {{seznam_testov[i].letnik}}</button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                         % end
                     % end

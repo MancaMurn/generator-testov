@@ -1,6 +1,7 @@
 import bottle
 from model import *
 import docx
+import os
 
 PISKOTEK_UPORABNISKO_IME = "uporabnisko_ime"
 SKRIVNOST = "to je ena skrivnost"
@@ -239,6 +240,12 @@ def izbrisi_test():
     index_testa = int(bottle.request.forms.getunicode("index_testa"))
 
     seznam_testov = uporabnik.seznam_testov
+    test = seznam_testov[index_testa]
+
+    if test.stanje == "KT":
+        os.remove(f"testi/{uporabnisko_ime}_{test.predmet}_{test.letnik}_resitve.docx")
+        for i in range(test.st_razlicic):
+            os.remove(f"testi/{uporabnisko_ime}_{test.predmet}_{test.letnik}_ucenec{i + 1}.docx")
 
     del(uporabnik.seznam_testov[index_testa])
     uporabnik.v_datoteko()
