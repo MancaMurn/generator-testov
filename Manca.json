@@ -1,0 +1,196 @@
+{
+    "uporabnisko_ime": "Manca",
+    "zasifrirano_geslo": "3350772031$21e2d709eb8dc040ca567d7a6a072b73662a67d8e6c0b733d88b521f06ec84f977db2962376c1414f4c27ca9ce921b475156b395a5dc8e3aedb9520f146a35b2",
+    "seznam_testov": [
+        {
+            "predmet": "Fizika",
+            "letnik": "8. razred",
+            "ucitelj": "Manca",
+            "st_razlicic": 10,
+            "st_nalog": 3,
+            "slovar_nalog": {
+                "0": {
+                    "st_razlicic": 10,
+                    "besedilo": "Avto je v #1 s prevozil #2 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                    "formula_resitve": "#2 / ( #1 / ( 60 ** 2 ) )",
+                    "slovar_baz_podatkov": {
+                        "#1": [
+                            "Z",
+                            "100",
+                            "1000"
+                        ],
+                        "#2": [
+                            "Z",
+                            "0",
+                            "10"
+                        ]
+                    },
+                    "seznam_razlicic": [
+                        {
+                            "besedilo": "Avto je v 802 s prevozil 7 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": 31.421
+                        },
+                        {
+                            "besedilo": "Avto je v 854 s prevozil 7 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": 29.508
+                        },
+                        {
+                            "besedilo": "Avto je v 946 s prevozil 7 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": 26.638
+                        },
+                        {
+                            "besedilo": "Avto je v 736 s prevozil 9 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": 44.022
+                        },
+                        {
+                            "besedilo": "Avto je v 792 s prevozil 6 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": 27.273
+                        },
+                        {
+                            "besedilo": "Avto je v 156 s prevozil 10 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": 230.769
+                        },
+                        {
+                            "besedilo": "Avto je v 573 s prevozil 1 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": 6.283
+                        },
+                        {
+                            "besedilo": "Avto je v 590 s prevozil 1 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": 6.102
+                        },
+                        {
+                            "besedilo": "Avto je v 859 s prevozil 3 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": 12.573
+                        },
+                        {
+                            "besedilo": "Avto je v 295 s prevozil 5 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": 61.017
+                        }
+                    ],
+                    "stanje": "KN"
+                },
+                "1": {
+                    "st_razlicic": 10,
+                    "besedilo": "Nejc ima #1 nabojev v svoji pi\u0161toli. Na strelski tekmi jih porabi #2 %. Koliko denarja je zapravil na tekmi, \u010de vsak naboj stane #3 \u20ac ?",
+                    "formula_resitve": "#3 * ( #1 * ( #2 / 100 ) )",
+                    "slovar_baz_podatkov": {
+                        "#1": [
+                            "Z",
+                            "20",
+                            "50"
+                        ],
+                        "#2": [
+                            "Z",
+                            "50",
+                            "100"
+                        ],
+                        "#3": [
+                            "Z",
+                            "0",
+                            "10"
+                        ]
+                    },
+                    "seznam_razlicic": [
+                        {
+                            "besedilo": "Nejc ima 34 nabojev v svoji pi\u0161toli. Na strelski tekmi jih porabi 51 %. Koliko denarja je zapravil na tekmi, \u010de vsak naboj stane 10 \u20ac ?",
+                            "resitev": 173.4
+                        },
+                        {
+                            "besedilo": "Nejc ima 42 nabojev v svoji pi\u0161toli. Na strelski tekmi jih porabi 92 %. Koliko denarja je zapravil na tekmi, \u010de vsak naboj stane 2 \u20ac ?",
+                            "resitev": 77.28
+                        },
+                        {
+                            "besedilo": "Nejc ima 46 nabojev v svoji pi\u0161toli. Na strelski tekmi jih porabi 82 %. Koliko denarja je zapravil na tekmi, \u010de vsak naboj stane 10 \u20ac ?",
+                            "resitev": 377.2
+                        },
+                        {
+                            "besedilo": "Nejc ima 26 nabojev v svoji pi\u0161toli. Na strelski tekmi jih porabi 83 %. Koliko denarja je zapravil na tekmi, \u010de vsak naboj stane 7 \u20ac ?",
+                            "resitev": 151.06
+                        },
+                        {
+                            "besedilo": "Nejc ima 38 nabojev v svoji pi\u0161toli. Na strelski tekmi jih porabi 92 %. Koliko denarja je zapravil na tekmi, \u010de vsak naboj stane 6 \u20ac ?",
+                            "resitev": 209.76
+                        },
+                        {
+                            "besedilo": "Nejc ima 31 nabojev v svoji pi\u0161toli. Na strelski tekmi jih porabi 66 %. Koliko denarja je zapravil na tekmi, \u010de vsak naboj stane 8 \u20ac ?",
+                            "resitev": 163.68
+                        },
+                        {
+                            "besedilo": "Nejc ima 39 nabojev v svoji pi\u0161toli. Na strelski tekmi jih porabi 78 %. Koliko denarja je zapravil na tekmi, \u010de vsak naboj stane 9 \u20ac ?",
+                            "resitev": 273.78
+                        },
+                        {
+                            "besedilo": "Nejc ima 48 nabojev v svoji pi\u0161toli. Na strelski tekmi jih porabi 96 %. Koliko denarja je zapravil na tekmi, \u010de vsak naboj stane 7 \u20ac ?",
+                            "resitev": 322.56
+                        },
+                        {
+                            "besedilo": "Nejc ima 44 nabojev v svoji pi\u0161toli. Na strelski tekmi jih porabi 64 %. Koliko denarja je zapravil na tekmi, \u010de vsak naboj stane 8 \u20ac ?",
+                            "resitev": 225.28
+                        },
+                        {
+                            "besedilo": "Nejc ima 34 nabojev v svoji pi\u0161toli. Na strelski tekmi jih porabi 89 %. Koliko denarja je zapravil na tekmi, \u010de vsak naboj stane 4 \u20ac ?",
+                            "resitev": 121.04
+                        }
+                    ],
+                    "stanje": "KN"
+                },
+                "2": {
+                    "st_razlicic": 10,
+                    "besedilo": "Klado vr\u017eemo iz #1 m visokega dimnika. Po koliko sekundah bo padla na tla, \u010de upo\u0161tevamo, da je te\u017enostni pospe\u0161ek 10 m/s?",
+                    "formula_resitve": "( #1 / 5 ) ** ( 1 / 2 )",
+                    "slovar_baz_podatkov": {
+                        "#1": [
+                            "Z",
+                            "100",
+                            "1000"
+                        ]
+                    },
+                    "seznam_razlicic": [
+                        {
+                            "besedilo": "Klado vr\u017eemo iz 698 m visokega dimnika. Po koliko sekundah bo padla na tla, \u010de upo\u0161tevamo, da je te\u017enostni pospe\u0161ek 10 m/s?",
+                            "resitev": 11.815
+                        },
+                        {
+                            "besedilo": "Klado vr\u017eemo iz 381 m visokega dimnika. Po koliko sekundah bo padla na tla, \u010de upo\u0161tevamo, da je te\u017enostni pospe\u0161ek 10 m/s?",
+                            "resitev": 8.729
+                        },
+                        {
+                            "besedilo": "Klado vr\u017eemo iz 385 m visokega dimnika. Po koliko sekundah bo padla na tla, \u010de upo\u0161tevamo, da je te\u017enostni pospe\u0161ek 10 m/s?",
+                            "resitev": 8.775
+                        },
+                        {
+                            "besedilo": "Klado vr\u017eemo iz 516 m visokega dimnika. Po koliko sekundah bo padla na tla, \u010de upo\u0161tevamo, da je te\u017enostni pospe\u0161ek 10 m/s?",
+                            "resitev": 10.159
+                        },
+                        {
+                            "besedilo": "Klado vr\u017eemo iz 827 m visokega dimnika. Po koliko sekundah bo padla na tla, \u010de upo\u0161tevamo, da je te\u017enostni pospe\u0161ek 10 m/s?",
+                            "resitev": 12.861
+                        },
+                        {
+                            "besedilo": "Klado vr\u017eemo iz 792 m visokega dimnika. Po koliko sekundah bo padla na tla, \u010de upo\u0161tevamo, da je te\u017enostni pospe\u0161ek 10 m/s?",
+                            "resitev": 12.586
+                        },
+                        {
+                            "besedilo": "Klado vr\u017eemo iz 621 m visokega dimnika. Po koliko sekundah bo padla na tla, \u010de upo\u0161tevamo, da je te\u017enostni pospe\u0161ek 10 m/s?",
+                            "resitev": 11.145
+                        },
+                        {
+                            "besedilo": "Klado vr\u017eemo iz 928 m visokega dimnika. Po koliko sekundah bo padla na tla, \u010de upo\u0161tevamo, da je te\u017enostni pospe\u0161ek 10 m/s?",
+                            "resitev": 13.624
+                        },
+                        {
+                            "besedilo": "Klado vr\u017eemo iz 451 m visokega dimnika. Po koliko sekundah bo padla na tla, \u010de upo\u0161tevamo, da je te\u017enostni pospe\u0161ek 10 m/s?",
+                            "resitev": 9.497
+                        },
+                        {
+                            "besedilo": "Klado vr\u017eemo iz 861 m visokega dimnika. Po koliko sekundah bo padla na tla, \u010de upo\u0161tevamo, da je te\u017enostni pospe\u0161ek 10 m/s?",
+                            "resitev": 13.122
+                        }
+                    ],
+                    "stanje": "KN"
+                }
+            },
+            "stanje": "KT"
+        }
+    ]
+}

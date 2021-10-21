@@ -187,7 +187,7 @@ def test():
     for i in range(test.st_razlicic):
         dokument = docx.Document()
         dokument.add_heading(test.glava, level = 1)
-        dokument.add_heading(f"učenec {i + 1}")
+        dokument.add_heading(f"učenec {i + 1}", level = 2)
         for j in slovar_nalog:
             seznam_razlicic = slovar_nalog[j].seznam_razlicic
             razlicica = seznam_razlicic[i]
