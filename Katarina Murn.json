@@ -571,14 +571,30 @@
             "slovar_nalog": {
                 "0": {
                     "st_razlicic": 1,
-                    "besedilo": "",
-                    "formula_resitve": "",
-                    "slovar_baz_podatkov": {},
-                    "seznam_razlicic": [],
-                    "stanje": "NN"
+                    "besedilo": "Avto je v #1 s prevozil #2 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                    "formula_resitve": "#2 / ( #1 * ( 60 ** 2 ) )",
+                    "slovar_baz_podatkov": {
+                        "#1": [
+                            "Z",
+                            "100",
+                            "1000"
+                        ],
+                        "#2": [
+                            "Z",
+                            "0",
+                            "10"
+                        ]
+                    },
+                    "seznam_razlicic": [
+                        {
+                            "besedilo": "Avto je v 761 s prevozil 9 km. Kako hitro je peljal, \u010de ve\u0161, da se je gibal premo enakomerno?",
+                            "resitev": 0.0
+                        }
+                    ],
+                    "stanje": "KN"
                 }
             },
-            "stanje": "NT"
+            "stanje": "KT"
         },
         {
             "predmet": "kem",

@@ -147,14 +147,13 @@ def uredi_podatke():
         napaka_resitev = "Niste vnesli formule za rešitev!"
         return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=napaka_resitev)
     else:
-        naloga.spremeni_formulo(formula_resitve)
-        naloga.ustvari_razlicice()
-        # try:
-        #     naloga.spremeni_formulo(formula_resitve)
-        #     naloga.ustvari_razlicice()
-        # except SyntaxError:
-        #     napaka_resitve = "Formulo ste napisali narobe!"
-        #     return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=napaka_resitve)
+        try:
+            naloga.spremeni_formulo(formula_resitve)
+            naloga.ustvari_razlicice()
+        except SyntaxError:
+            naloga.spremeni_formulo("") # Formula je bila nepravilno napisana zato jo spremenimo nazaj na prazno
+            napaka_resitve = "Formulo ste napisali narobe!"
+            return bottle.template("nov_test_naloga.html", st_nalog=st_nalog, index_testa=index_testa, slovar_nalog=slovar_nalog, napaka=napaka_resitve)
 
     naloga.spremeni_stanje('KN')
     uporabnik.v_datoteko()
@@ -215,7 +214,6 @@ def nedokoncan_test():
     uporabnisko_ime = bottle.request.get_cookie(PISKOTEK_UPORABNISKO_IME, secret=SKRIVNOST)
     uporabnik = Uporabnik.iz_datoteke(uporabnisko_ime) 
 
-    # izpolnjena_naloga = int(bottle.request.forms.getunicode("izpolnjena_naloga"))
     index_testa = int(bottle.request.forms.getunicode("index_testa"))
     st_nalog = int(bottle.request.forms.getunicode("st_nalog"))
     slovar_nalog = uporabnik.seznam_testov[index_testa].slovar_nalog
@@ -234,6 +232,20 @@ def koncan_test():
     return bottle.template("test.html", test=test, uporabnisko_ime=uporabnisko_ime)
 
 
+@bottle.post("/izbrisi_test/")
+def izbrisi_test():
+    uporabnisko_ime = bottle.request.get_cookie(PISKOTEK_UPORABNISKO_IME, secret=SKRIVNOST)
+    uporabnik = Uporabnik.iz_datoteke(uporabnisko_ime)
+    index_testa = int(bottle.request.forms.getunicode("index_testa"))
+
+    seznam_testov = uporabnik.seznam_testov
+
+    del(uporabnik.seznam_testov[index_testa])
+    uporabnik.v_datoteko()
+
+    return bottle.template("arhiv.html", seznam_testov = seznam_testov)
+
+    
 @bottle.post("/odjava/")
 def odjava():
     bottle.response.delete_cookie(PISKOTEK_UPORABNISKO_IME)
