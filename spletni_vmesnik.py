@@ -270,4 +270,5 @@ def send_static(filename):
 
 
 if __name__ == "__main__":
+    bottle.TEMPLATE_PATH.insert(0,'views')
     bottle.run(debug=True, reloader=True)
